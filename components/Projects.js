@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 const highlightProjects = [
     {
-        name: "Research AI Agent (ScholarPulse)",
+        name: "ScholarPulse",
         description: "Autonomous AI system simulating human research workflow. Features arXiv literature ingestion, hypothesis generation, and Gemini LLM integration.",
         tags: ["Autonomous Agents", "Gemini API", "arXiv API", "Multi-Agent System"],
         githubUrl: "https://github.com/Hrituparno/scholarpulse",
@@ -13,7 +13,7 @@ const highlightProjects = [
         type: "Agentic System"
     },
     {
-        name: "Flask News Agent",
+        name: "Flask_News_App",
         description: "Multi-agent AI system for real-time news research built with Flask and CrewAI. Focuses on reasoning and structured outputs.",
         tags: ["Flask", "CrewAI", "Serper API", "Multi-Agent System"],
         githubUrl: "https://github.com/Hrituparno/Flask_News_App",
