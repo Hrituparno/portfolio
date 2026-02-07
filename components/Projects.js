@@ -8,7 +8,7 @@ const highlightProjects = [
         description: "Autonomous AI system simulating human research workflow. Features arXiv literature ingestion, hypothesis generation, and Gemini LLM integration.",
         tags: ["Streamlit", "Django", "Gemini API", "Autonomous Agents"],
         githubUrl: "https://github.com/Hrituparno/scholarpulse",
-        demoUrl: "https://scholarpulse.streamlit.app", // Expected URL pattern
+        demoUrl: "https://hrituparno-scholarpulse-app-nya41k.streamlit.app/",
         hasDemo: true,
         type: "Agentic System"
     },
