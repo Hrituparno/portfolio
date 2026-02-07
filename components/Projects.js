@@ -6,16 +6,16 @@ const highlightProjects = [
     {
         name: "ScholarPulse",
         description: "Autonomous AI system simulating human research workflow. Features arXiv literature ingestion, hypothesis generation, and Gemini LLM integration.",
-        tags: ["Autonomous Agents", "Gemini API", "arXiv API", "Multi-Agent System"],
+        tags: ["Streamlit", "Django", "Gemini API", "Autonomous Agents"],
         githubUrl: "https://github.com/Hrituparno/scholarpulse",
-        demoUrl: "https://scholarpulse.vercel.app",
+        demoUrl: "https://scholarpulse.streamlit.app", // Expected URL pattern
         hasDemo: true,
         type: "Agentic System"
     },
     {
         name: "Flask_News_App",
         description: "Multi-agent AI system for real-time news research built with Flask and CrewAI. Focuses on reasoning and structured outputs.",
-        tags: ["Flask", "CrewAI", "Serper API", "Multi-Agent System"],
+        tags: ["Flask", "CrewAI", "Python", "Multi-Agent System"],
         githubUrl: "https://github.com/Hrituparno/Flask_News_App",
         demoUrl: "https://flask-news-app.vercel.app",
         hasDemo: true,
