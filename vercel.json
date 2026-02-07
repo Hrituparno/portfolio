@@ -1,7 +1,7 @@
 {
   "rewrites": [
     {
-      "source": "/flashnews/(.*)",
+      "source": "/flashnews(.*)",
       "destination": "/api/flashnews/index.py"
     },
     {
