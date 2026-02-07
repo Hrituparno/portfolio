@@ -17,7 +17,7 @@ const highlightProjects = [
         description: "Multi-agent AI system for real-time news research built with Flask and CrewAI. Focuses on reasoning and structured outputs.",
         tags: ["Flask", "CrewAI", "Python", "Multi-Agent System"],
         githubUrl: "https://github.com/Hrituparno/Flask_News_App",
-        demoUrl: "https://flask-news-app.vercel.app",
+        demoUrl: "/flashnews/",
         hasDemo: true,
         type: "Multi-Agent System"
     },
