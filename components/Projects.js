@@ -4,20 +4,20 @@ import { motion } from 'framer-motion';
 
 const highlightProjects = [
     {
-        name: "Research AI Agent",
+        name: "Research AI Agent (ScholarPulse)",
         description: "Autonomous AI system simulating human research workflow. Features arXiv literature ingestion, hypothesis generation, and Gemini LLM integration.",
         tags: ["Autonomous Agents", "Gemini API", "arXiv API", "Multi-Agent System"],
-        githubUrl: "https://github.com/Hrituparno/research-ai-agent",
-        demoUrl: "https://research-ai-agent.vercel.app",
+        githubUrl: "https://github.com/Hrituparno/scholarpulse",
+        demoUrl: "https://scholarpulse.vercel.app",
         hasDemo: true,
         type: "Agentic System"
     },
     {
-        name: "Flask AI News Agent",
+        name: "Flask News Agent",
         description: "Multi-agent AI system for real-time news research built with Flask and CrewAI. Focuses on reasoning and structured outputs.",
         tags: ["Flask", "CrewAI", "Serper API", "Multi-Agent System"],
-        githubUrl: "https://github.com/Hrituparno/ai-news-assistant",
-        demoUrl: "https://ai-news-assistant.vercel.app",
+        githubUrl: "https://github.com/Hrituparno/Flask_News_App",
+        demoUrl: "https://flask-news-app.vercel.app",
         hasDemo: true,
         type: "Multi-Agent System"
     },
