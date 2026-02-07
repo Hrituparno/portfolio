@@ -3,7 +3,7 @@ from flask import Flask, render_template, request
 from newsapi import NewsApiClient
 
 # Configure template folder relative to this file
-template_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates')
+template_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'flashnews', 'templates')
 app = Flask(__name__, template_folder=template_dir)
 
 newsapi = NewsApiClient(api_key='0acf7dede0a040b5ba19b4998c38ce41')
