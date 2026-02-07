@@ -18,7 +18,7 @@ export default function Footer() {
                         <a href="https://www.linkedin.com/in/hrituparno-chakkraborty-6a0353230/" className="text-zinc-500 hover:text-white transition-colors">
                             LinkedIn
                         </a>
-                        <a href="mailto:hrituparno@example.com" className="text-zinc-500 hover:text-white transition-colors">
+                        <a href="mailto:hritupornochakraborty@gmail.com" className="text-zinc-500 hover:text-white transition-colors">
                             Email
                         </a>
                     </div>

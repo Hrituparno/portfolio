@@ -7,26 +7,26 @@ const highlightProjects = [
         name: "Research AI Agent",
         description: "Autonomous AI system simulating human research workflow. Features arXiv literature ingestion, hypothesis generation, and Gemini LLM integration.",
         tags: ["Autonomous Agents", "Gemini API", "arXiv API", "Multi-Agent System"],
-        githubUrl: "https://github.com/Hrituparno/research-ai-agent", // Placeholder
-        demoUrl: null,
-        hasDemo: false,
+        githubUrl: "https://github.com/Hrituparno/research-ai-agent",
+        demoUrl: "https://research-ai-agent.vercel.app",
+        hasDemo: true,
         type: "Agentic System"
     },
     {
         name: "AI News Research Assistant",
         description: "Multi-agent AI system for real-time news research using CrewAI and Serper API. Focuses on reasoning and structured outputs.",
         tags: ["CrewAI", "Serper API", "Multi-Agent System", "Research Helper"],
-        githubUrl: "https://github.com/Hrituparno/ai-news-assistant", // Placeholder
-        demoUrl: null,
-        hasDemo: false,
+        githubUrl: "https://github.com/Hrituparno/ai-news-assistant",
+        demoUrl: "https://ai-news-assistant.vercel.app",
+        hasDemo: true,
         type: "Multi-Agent System"
     },
     {
         name: "Multilingual Translation Hub",
         description: "HuggingFace transformer models with interactive Gradio interface for real-time multi-language translation.",
         tags: ["HuggingFace", "Gradio", "Transformers", "NLP"],
-        githubUrl: "https://github.com/Hrituparno/translation-hub", // Placeholder
-        demoUrl: "https://huggingface.co/spaces/hrituparno/translation-hub", // Placeholder
+        githubUrl: "https://github.com/Hrituparno/translation-hub",
+        demoUrl: "https://huggingface.co/spaces/hrituparno/translation-hub",
         hasDemo: true,
         type: "Interactive App"
     }

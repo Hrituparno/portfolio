@@ -39,7 +39,7 @@ export default function Contact() {
                             </div>
                             <div className="flex items-center text-zinc-400">
                                 <Mail className="w-5 h-5 mr-3 text-zinc-500" />
-                                hrituparno.chakraborty@example.com
+                                hritupornochakraborty@gmail.com
                             </div>
                         </div>
                     </div>
