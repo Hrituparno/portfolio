@@ -13,9 +13,9 @@ const highlightProjects = [
         type: "Agentic System"
     },
     {
-        name: "AI News Research Assistant",
-        description: "Multi-agent AI system for real-time news research using CrewAI and Serper API. Focuses on reasoning and structured outputs.",
-        tags: ["CrewAI", "Serper API", "Multi-Agent System", "Research Helper"],
+        name: "Flask AI News Agent",
+        description: "Multi-agent AI system for real-time news research built with Flask and CrewAI. Focuses on reasoning and structured outputs.",
+        tags: ["Flask", "CrewAI", "Serper API", "Multi-Agent System"],
         githubUrl: "https://github.com/Hrituparno/ai-news-assistant",
         demoUrl: "https://ai-news-assistant.vercel.app",
         hasDemo: true,
