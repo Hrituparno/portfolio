@@ -47,7 +47,7 @@ export default function Projects() {
                         </p>
                     </div>
                     <div className="flex gap-4">
-                        <div className="flex items-center gap-2 px-4 py-2 rounded-full glass-button text-sm text-zinc-400">
+                        <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-900/50 border border-zinc-800 text-sm text-zinc-400">
                             <Stars className="w-4 h-4 text-yellow-500" />
                             <span>All Open Source</span>
                         </div>
@@ -62,7 +62,7 @@ export default function Projects() {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: idx * 0.1 }}
                             viewport={{ once: true }}
-                            className={`${project.className} glass-card group rounded-3xl p-8 flex flex-col justify-between relative overflow-hidden`}
+                            className={`${project.className} bg-zinc-900/50 backdrop-blur-md border border-zinc-800 rounded-3xl p-8 flex flex-col justify-between relative overflow-hidden group hover:border-zinc-700 transition-all duration-300`}
                         >
                             {/* Decorative background glow on hover */}
                             <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
