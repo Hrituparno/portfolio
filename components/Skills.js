@@ -1,3 +1,5 @@
+import { motion } from 'framer-motion';
+
 const skillCategories = [
     {
         title: "Programming",
@@ -5,48 +7,52 @@ const skillCategories = [
     },
     {
         title: "AI & Machine Learning",
-        skills: ["Deep Learning", "Neural Networks", "NLP", "Computer Vision", "Reinforcement Learning"]
+        skills: ["Deep Learning", "Neural Networks", "NLP", "Reinforcement Learning"]
     },
     {
-        title: "AI Systems",
+        title: "Agentic Engineering",
         skills: ["Autonomous Agents", "Multi-Agent Systems", "LLM Pipelines", "RAG"]
     },
     {
-        title: "Tools & Frameworks",
+        title: "Frameworks",
         skills: ["CrewAI", "Flask", "FastAPI", "Gradio", "LangChain", "HuggingFace"]
     },
     {
-        title: "Research Skills",
-        skills: ["Literature Review", "Hypothesis Generation", "Experiment Design", "Technical Writing"]
+        title: "Applied Research",
+        skills: ["Literature Review", "Hypothesis Design", "Technical Writing"]
     }
 ];
 
 export default function Skills() {
     return (
-        <section id="skills" className="py-24 bg-zinc-950">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 className="text-3xl font-bold mb-12 text-zinc-100">Technical Arsenal</h2>
+        <section id="skills" className="py-24 relative overflow-hidden">
+            <div className="container px-4 mx-auto">
+                <h2 className="text-4xl md:text-5xl font-bold mb-16 text-gradient text-center">Technical Stack</h2>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {skillCategories.map((category, idx) => (
-                        <div
+                        <motion.div
                             key={idx}
-                            className="group p-6 rounded-xl bg-zinc-900 border border-zinc-800 hover:border-zinc-700 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/5"
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 0.5, delay: idx * 0.1 }}
+                            viewport={{ once: true }}
+                            className="glass-card rounded-3xl p-8 hover:bg-zinc-800/30 transition-all group"
                         >
-                            <h3 className="text-xl font-semibold mb-4 text-zinc-200 group-hover:text-blue-400 transition-colors">
+                            <h3 className="text-xl font-bold mb-6 text-zinc-100 group-hover:text-blue-400 transition-colors">
                                 {category.title}
                             </h3>
-                            <div className="flex flex-wrap gap-2">
+                            <div className="flex flex-wrap gap-3">
                                 {category.skills.map((skill, sIdx) => (
                                     <span
                                         key={sIdx}
-                                        className="px-3 py-1 text-xs font-medium rounded-full bg-zinc-800 text-zinc-400 border border-zinc-700/50"
+                                        className="px-4 py-2 text-sm rounded-full glass-button text-zinc-400 hover:text-white hover:border-blue-500/50 transition-all cursor-default"
                                     >
                                         {skill}
                                     </span>
                                 ))}
                             </div>
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
             </div>

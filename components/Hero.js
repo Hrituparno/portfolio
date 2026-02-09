@@ -1,57 +1,67 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, Download } from 'lucide-react';
+import { ArrowRight, Download, Sparkles } from 'lucide-react';
 
 export default function Hero() {
     return (
-        <section className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden">
-            {/* Background decoration */}
-            <div className="absolute inset-0 z-0">
-                <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
-                <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl" />
+        <section className="relative min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden">
+            {/* Dynamic Glowing Background */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-full -z-10">
+                <div className="bg-glow top-0 left-1/4 w-[500px] h-[500px] bg-blue-600/30" />
+                <div className="bg-glow bottom-1/4 right-1/4 w-[400px] h-[400px] bg-purple-600/20" />
             </div>
 
-            <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div className="container relative z-10 px-4 mx-auto text-center">
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
                 >
-                    <span className="inline-block py-1 px-3 rounded-full bg-zinc-800/50 border border-zinc-700 text-zinc-400 text-sm font-medium mb-6">
-                        Available for Research Collaborations
-                    </span>
+                    <div className="inline-flex items-center gap-2 py-1.5 px-4 rounded-full glass-button text-sm font-medium mb-8 text-zinc-300">
+                        <Sparkles className="w-4 h-4 text-blue-400" />
+                        <span>Ready for 2026 Research Cohorts</span>
+                    </div>
 
-                    <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6 bg-clip-text text-transparent bg-gradient-to-r from-zinc-100 to-zinc-500">
-                        Hrituparno Chakraborty
+                    <h1 className="text-6xl md:text-8xl font-bold tracking-tight mb-8 text-gradient">
+                        Hrituparno <br /> Chakraborty
                     </h1>
 
-                    <h2 className="text-2xl md:text-3xl text-zinc-400 font-light mb-8 max-w-3xl mx-auto">
-                        AI Research Engineer building <span className="text-white font-normal">autonomous multi-agent systems</span>
+                    <h2 className="text-2xl md:text-4xl text-zinc-400 font-light mb-10 max-w-4xl mx-auto leading-tight">
+                        Pioneering <span className="text-white font-medium">Autonomous Multi-Agent Systems</span> and LLM Micro-Architectures
                     </h2>
 
-                    <p className="text-zinc-500 text-lg mb-10 max-w-2xl mx-auto leading-relaxed">
-                        Research-focused engineer with hands-on experience in LLM pipelines,
-                        autonomous agents, and end-to-end AI research workflows.
+                    <p className="text-zinc-500 text-lg md:text-xl mb-12 max-w-2xl mx-auto leading-relaxed">
+                        Bridge the gap between raw intelligence and autonomous action.
+                        Engineering the next generation of research agents.
                     </p>
 
-                    <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
                         <a
                             href="#projects"
-                            className="group px-8 py-3 rounded-lg bg-white text-black font-semibold hover:bg-zinc-200 transition-all flex items-center"
+                            className="group px-10 py-4 rounded-full bg-white text-black font-bold hover:scale-105 transition-all flex items-center shadow-[0_0_20px_rgba(255,255,255,0.3)]"
                         >
-                            View Research Projects
-                            <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                            Explore Systems
+                            <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </a>
 
                         <a
-                            href="/resume.pdf" // Placeholder path
-                            className="px-8 py-3 rounded-lg border border-zinc-700 hover:bg-zinc-800 text-zinc-300 font-medium transition-colors flex items-center"
+                            href="/resume.pdf"
+                            className="px-10 py-4 rounded-full glass-button text-white font-medium hover:scale-105 transition-all flex items-center"
                         >
-                            <Download className="mr-2 w-4 h-4" />
-                            Download Resume
+                            <Download className="mr-2 w-5 h-5 opacity-70" />
+                            Curriculum Vitae
                         </a>
                     </div>
                 </motion.div>
             </div>
+
+            {/* Scroll Indicator */}
+            <motion.div
+                animate={{ y: [0, 10, 0] }}
+                transition={{ duration: 2, repeat: Infinity }}
+                className="absolute bottom-10 left-1/2 -translate-x-1/2 text-zinc-600"
+            >
+                <div className="w-px h-12 bg-gradient-to-b from-zinc-500 to-transparent" />
+            </motion.div>
         </section>
     );
 }
