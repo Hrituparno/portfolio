@@ -25,28 +25,34 @@ const skillCategories = [
 
 export default function Skills() {
     return (
-        <section id="skills" className="py-24 relative overflow-hidden bg-zinc-950">
-            <div className="container px-4 mx-auto">
-                <h2 className="text-4xl md:text-5xl font-bold mb-16 text-white text-center tracking-tight">Technical Stack</h2>
+        <section id="skills" className="py-24 bg-white">
+            <div className="container px-4 mx-auto max-w-7xl">
+                <div className="text-center mb-16">
+                    <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">Technical Stack</h2>
+                    <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+                        A comprehensive toolkit for building intelligent systems
+                    </p>
+                    <div className="w-20 h-1 bg-indigo-600 mx-auto rounded-full mt-6" />
+                </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {skillCategories.map((category, idx) => (
                         <motion.div
                             key={idx}
-                            initial={{ opacity: 0, scale: 0.95 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: idx * 0.1 }}
                             viewport={{ once: true }}
-                            className="bg-zinc-900/50 backdrop-blur-md border border-zinc-800 rounded-3xl p-8 hover:bg-zinc-900 hover:border-zinc-700 transition-all group"
+                            className="card group"
                         >
-                            <h3 className="text-xl font-bold mb-6 text-zinc-100 group-hover:text-blue-400 transition-colors">
+                            <h3 className="text-xl font-bold mb-6 text-gray-900 group-hover:text-indigo-600 transition-colors">
                                 {category.title}
                             </h3>
-                            <div className="flex flex-wrap gap-3">
+                            <div className="flex flex-wrap gap-2">
                                 {category.skills.map((skill, sIdx) => (
                                     <span
                                         key={sIdx}
-                                        className="px-4 py-2 text-sm rounded-full bg-zinc-950/50 border border-zinc-800 text-zinc-400 hover:text-white hover:border-zinc-600 transition-all cursor-default"
+                                        className="px-4 py-2 text-sm rounded-full bg-gray-50 border border-gray-200 text-gray-700 hover:bg-indigo-50 hover:border-indigo-200 hover:text-indigo-700 transition-all cursor-default"
                                     >
                                         {skill}
                                     </span>

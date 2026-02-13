@@ -1,118 +1,58 @@
-import { useState } from 'react';
-import { Terminal, Send, Cpu, Loader2 } from 'lucide-react';
+import { Cpu, BookOpen, Lightbulb, Zap } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export default function AIResearch() {
-    const [query, setQuery] = useState('');
-    const [response, setResponse] = useState(null);
-    const [loading, setLoading] = useState(false);
-    const [mode, setMode] = useState('summary'); // 'summary' | 'explain' | 'chat'
-
-    const handleCommand = async () => {
-        if (!query && mode !== 'summary') return;
-
-        setLoading(true);
-        setResponse(null);
-
-        // Simulate API call delay for effect
-        // In production, this would fetch from /api/summarize or /api/chat
-        setTimeout(() => {
-            let mockResponse = "";
-
-            if (mode === 'summary') {
-                mockResponse = "Based on the provided research context, Hrituparno focuses on Autonomous Multi-Agent Systems. His work involves creating agents that can autonomously ingest literature (arXiv), formulate hypotheses, and execute experiments. Key technologies include Gemini/GPT-4 for reasoning and vector databases for knowledge retrieval.";
-            } else if (mode === 'explain') {
-                mockResponse = `Analyzing project: "${query}"...\n\nThis project likely demonstrates the application of LLMs in a specific domain. If it's the "Research AI Agent", it models the scientific method computationally. If it's the "News Assistant", it showcases real-time information retrieval and synthesis.`;
-            } else {
-                mockResponse = `[AI Research Assistant]: That's an interesting question about "${query}". Hrituparno's approach typically involves decomposing complex tasks into sub-problems solvable by specialized agents.`;
-            }
-
-            setResponse(mockResponse);
-            setLoading(false);
-        }, 1500);
-    };
+    const highlights = [
+        {
+            icon: <Cpu className="w-6 h-6" />,
+            title: "Autonomous Agents",
+            description: "Building systems that can reason, plan, and execute complex tasks independently"
+        },
+        {
+            icon: <BookOpen className="w-6 h-6" />,
+            title: "Research Workflows",
+            description: "Simulating human research processes from literature review to hypothesis generation"
+        },
+        {
+            icon: <Lightbulb className="w-6 h-6" />,
+            title: "LLM Integration",
+            description: "Leveraging Gemini, GPT-4, and other models for intelligent decision-making"
+        },
+        {
+            icon: <Zap className="w-6 h-6" />,
+            title: "Production Ready",
+            description: "Bridging the gap between research prototypes and scalable AI solutions"
+        }
+    ];
 
     return (
-        <section id="ai-interactive" className="py-24 bg-zinc-950 border-t border-zinc-900">
-            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center mb-12">
-                    <div className="inline-flex items-center justify-center p-3 bg-blue-500/10 rounded-full mb-4">
-                        <Cpu className="text-blue-400 w-8 h-8" />
-                    </div>
-                    <h2 className="text-3xl font-bold text-zinc-100">Interactive Research Assistant</h2>
-                    <p className="text-zinc-500 mt-4">
-                        Ask my AI agent about my research, projects, or background.
+        <section id="ai-research" className="py-24 bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50">
+            <div className="container px-4 mx-auto max-w-7xl">
+                <div className="text-center mb-16">
+                    <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">Research Focus</h2>
+                    <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+                        Exploring the intersection of autonomous systems and artificial intelligence
                     </p>
+                    <div className="w-20 h-1 bg-indigo-600 mx-auto rounded-full mt-6" />
                 </div>
 
-                <div className="bg-zinc-900 rounded-xl overflow-hidden border border-zinc-700 shadow-2xl">
-                    {/* Terminal Header */}
-                    <div className="bg-zinc-800 px-4 py-2 flex items-center space-x-2 border-b border-zinc-700">
-                        <div className="w-3 h-3 rounded-full bg-red-500" />
-                        <div className="w-3 h-3 rounded-full bg-yellow-500" />
-                        <div className="w-3 h-3 rounded-full bg-green-500" />
-                        <span className="ml-4 text-xs text-zinc-400 font-mono">research-agent — -bash — 80x24</span>
-                    </div>
-
-                    {/* Terminal Body */}
-                    <div className="p-6 font-mono text-sm h-96 overflow-y-auto flex flex-col">
-                        <div className="text-zinc-400 mb-4">
-                            <span className="text-green-400">➜</span> <span className="text-blue-400">~</span> Welcome. Select a mode to query the research database.
-                        </div>
-
-                        {/* Mode Selection */}
-                        <div className="flex space-x-2 mb-6">
-                            <button
-                                onClick={() => { setMode('summary'); setQuery(''); }}
-                                className={`px-3 py-1 rounded border ${mode === 'summary' ? 'border-blue-500 text-blue-400 bg-blue-500/10' : 'border-zinc-700 text-zinc-500 hover:border-zinc-600'}`}
-                            >
-                                Summarize Profile
-                            </button>
-                            <button
-                                onClick={() => { setMode('explain'); setQuery(''); }}
-                                className={`px-3 py-1 rounded border ${mode === 'explain' ? 'border-blue-500 text-blue-400 bg-blue-500/10' : 'border-zinc-700 text-zinc-500 hover:border-zinc-600'}`}
-                            >
-                                Explain Project
-                            </button>
-                        </div>
-
-                        {/* Input Area */}
-                        {mode !== 'summary' && (
-                            <div className="flex items-center space-x-2 mb-4">
-                                <span className="text-green-400">➜</span>
-                                <input
-                                    type="text"
-                                    value={query}
-                                    onChange={(e) => setQuery(e.target.value)}
-                                    placeholder={mode === 'explain' ? "Enter project name..." : "Ask a question..."}
-                                    className="bg-transparent border-none focus:ring-0 text-zinc-100 w-full outline-none"
-                                    onKeyDown={(e) => e.key === 'Enter' && handleCommand()}
-                                />
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    {highlights.map((item, idx) => (
+                        <motion.div
+                            key={idx}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5, delay: idx * 0.1 }}
+                            viewport={{ once: true }}
+                            className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all border border-gray-100 group"
+                        >
+                            <div className="p-3 bg-indigo-100 rounded-xl text-indigo-600 inline-block mb-4 group-hover:bg-indigo-600 group-hover:text-white transition-colors">
+                                {item.icon}
                             </div>
-                        )}
-
-                        {/* Response Area */}
-                        {loading ? (
-                            <div className="flex items-center text-zinc-400 mt-2">
-                                <Loader2 className="animate-spin mr-2 w-4 h-4" /> Processing query...
-                            </div>
-                        ) : response && (
-                            <div className="mt-2 p-3 bg-zinc-800/50 border border-zinc-700/50 rounded text-zinc-300 whitespace-pre-wrap animate-fade-in">
-                                {response}
-                            </div>
-                        )}
-
-                        {/* Execute Button for Summary Mode or general click */}
-                        <div className="mt-auto pt-4 flex justify-end">
-                            <button
-                                onClick={handleCommand}
-                                disabled={loading}
-                                className="flex items-center px-4 py-2 bg-zinc-100 text-zinc-900 rounded hover:bg-white disabled:opacity-50 font-sans font-medium text-xs"
-                            >
-                                {loading ? "Running..." : "Run Command"}
-                                {!loading && <Terminal className="ml-2 w-3 h-3" />}
-                            </button>
-                        </div>
-                    </div>
+                            <h3 className="text-lg font-bold text-gray-900 mb-2">{item.title}</h3>
+                            <p className="text-gray-600 text-sm leading-relaxed">{item.description}</p>
+                        </motion.div>
+                    ))}
                 </div>
             </div>
         </section>

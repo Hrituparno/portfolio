@@ -22,29 +22,29 @@ export default function Experience() {
     ];
 
     return (
-        <section id="experience" className="py-24 relative overflow-hidden bg-zinc-950">
-            {/* Background Glow */}
-            <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-blue-900/10 blur-[120px] rounded-full pointer-events-none" />
+        <section id="experience" className="py-24 bg-gray-50">
+            <div className="container px-4 mx-auto max-w-7xl">
+                <div className="text-center mb-16">
+                    <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">Experience & Education</h2>
+                    <div className="w-20 h-1 bg-indigo-600 mx-auto rounded-full" />
+                </div>
 
-            <div className="container px-4 mx-auto max-w-6xl relative z-10">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20">
-
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
                     {/* Experience Column */}
                     <div>
-                        <h2 className="text-3xl font-bold mb-10 text-white flex items-center gap-3">
-                            <span className="w-8 h-1 bg-blue-500 rounded-full"></span>
+                        <h3 className="text-2xl font-bold mb-8 text-gray-900 flex items-center gap-3">
+                            <span className="w-8 h-1 bg-indigo-600 rounded-full"></span>
                             Experience
-                        </h2>
-                        <div className="space-y-8">
+                        </h3>
+                        <div className="space-y-6">
                             {experiences.map((exp, idx) => (
-                                <div key={idx} className="bg-zinc-900/50 backdrop-blur-md border border-zinc-800 p-8 rounded-2xl relative shadow-lg hover:border-zinc-700 transition-colors">
-                                    <div className="absolute top-8 left-0 -translate-x-1/2 w-4 h-4 bg-blue-500 border-4 border-zinc-950 rounded-full hidden md:block" />
-                                    <h3 className="text-xl font-bold text-white mb-1">{exp.role}</h3>
-                                    <h4 className="text-lg text-blue-400 font-medium mb-4">{exp.organization}</h4>
-                                    <p className="text-sm text-zinc-500 font-mono mb-4 px-3 py-1 bg-zinc-900 rounded-full inline-block border border-zinc-800">
+                                <div key={idx} className="card">
+                                    <h4 className="text-xl font-bold text-gray-900 mb-2">{exp.role}</h4>
+                                    <h5 className="text-lg text-indigo-600 font-semibold mb-3">{exp.organization}</h5>
+                                    <p className="text-sm text-gray-500 font-medium mb-4 px-3 py-1 bg-gray-100 rounded-full inline-block">
                                         {exp.period}
                                     </p>
-                                    <p className="text-zinc-400 leading-relaxed">{exp.description}</p>
+                                    <p className="text-gray-600 leading-relaxed">{exp.description}</p>
                                 </div>
                             ))}
                         </div>
@@ -52,24 +52,22 @@ export default function Experience() {
 
                     {/* Education Column */}
                     <div>
-                        <h2 className="text-3xl font-bold mb-10 text-white flex items-center gap-3">
-                            <span className="w-8 h-1 bg-purple-500 rounded-full"></span>
+                        <h3 className="text-2xl font-bold mb-8 text-gray-900 flex items-center gap-3">
+                            <span className="w-8 h-1 bg-purple-600 rounded-full"></span>
                             Education
-                        </h2>
-                        <div className="space-y-8">
+                        </h3>
+                        <div className="space-y-6">
                             {education.map((edu, idx) => (
-                                <div key={idx} className="bg-zinc-900/50 backdrop-blur-md border border-zinc-800 p-8 rounded-2xl relative shadow-lg hover:border-zinc-700 transition-colors">
-                                    <div className="absolute top-8 left-0 -translate-x-1/2 w-4 h-4 bg-purple-500 border-4 border-zinc-950 rounded-full hidden md:block" />
-                                    <h3 className="text-xl font-bold text-white mb-1">{edu.degree}</h3>
-                                    <h4 className="text-lg text-purple-400 font-medium mb-4">{edu.institution}</h4>
-                                    <p className="text-sm text-zinc-500 font-mono inline-block px-3 py-1 bg-zinc-900 rounded-full border border-zinc-800">
+                                <div key={idx} className="card">
+                                    <h4 className="text-xl font-bold text-gray-900 mb-2">{edu.degree}</h4>
+                                    <h5 className="text-lg text-purple-600 font-semibold mb-3">{edu.institution}</h5>
+                                    <p className="text-sm text-gray-500 font-medium inline-block px-3 py-1 bg-gray-100 rounded-full">
                                         {edu.period}
                                     </p>
                                 </div>
                             ))}
                         </div>
                     </div>
-
                 </div>
             </div>
         </section>

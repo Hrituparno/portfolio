@@ -1,66 +1,79 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, Download, Sparkles } from 'lucide-react';
+import { ArrowRight, Download, Sparkles, Rocket } from 'lucide-react';
 
 export default function Hero() {
     return (
-        <section className="relative min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden">
-            {/* Dynamic Glowing Background */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-full -z-10">
-                <div className="bg-glow top-0 left-1/4 w-[500px] h-[500px] bg-blue-600/30" />
-                <div className="bg-glow bottom-1/4 right-1/4 w-[400px] h-[400px] bg-purple-600/20" />
-            </div>
+        <section className="relative min-h-screen flex items-center justify-center pt-32 pb-20 overflow-hidden bg-gradient-to-br from-gray-50 via-white to-indigo-50">
+            {/* Decorative Elements */}
+            <div className="absolute top-20 right-10 w-72 h-72 bg-indigo-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob" />
+            <div className="absolute bottom-20 left-10 w-72 h-72 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000" />
+            <div className="absolute top-1/2 left-1/2 w-72 h-72 bg-pink-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-4000" />
 
-            <div className="container relative z-10 px-4 mx-auto text-center">
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
-                >
-                    <div className="inline-flex items-center gap-2 py-1.5 px-4 rounded-full glass-button text-sm font-medium mb-8 text-zinc-300">
-                        <Sparkles className="w-4 h-4 text-blue-400" />
-                        <span>Ready for 2026 Research Cohorts</span>
-                    </div>
+            <div className="container relative z-10 px-4 mx-auto">
+                <div className="max-w-5xl mx-auto">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6 }}
+                        className="text-center"
+                    >
+                        <div className="inline-flex items-center gap-2 py-2 px-5 rounded-full bg-indigo-50 border border-indigo-100 text-sm font-medium mb-8 text-indigo-700">
+                            <Sparkles className="w-4 h-4" />
+                            <span>Ready for 2026 Research Cohorts</span>
+                        </div>
 
-                    <h1 className="text-6xl md:text-8xl font-bold tracking-tight mb-8 text-gradient">
-                        Hrituparno <br /> Chakraborty
-                    </h1>
+                        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 text-gray-900 leading-tight">
+                            Hrituparno <br className="hidden sm:block" /> Chakraborty
+                        </h1>
 
-                    <h2 className="text-2xl md:text-4xl text-zinc-400 font-light mb-10 max-w-4xl mx-auto leading-tight">
-                        Pioneering <span className="text-white font-medium">Autonomous Multi-Agent Systems</span> and LLM Micro-Architectures
-                    </h2>
+                        <h2 className="text-xl md:text-3xl text-gray-600 font-normal mb-8 max-w-3xl mx-auto leading-relaxed">
+                            Pioneering <span className="gradient-text font-semibold">Autonomous Multi-Agent Systems</span> and LLM Micro-Architectures
+                        </h2>
 
-                    <p className="text-zinc-500 text-lg md:text-xl mb-12 max-w-2xl mx-auto leading-relaxed">
-                        Bridge the gap between raw intelligence and autonomous action.
-                        Engineering the next generation of research agents.
-                    </p>
+                        <p className="text-gray-500 text-base md:text-lg mb-12 max-w-2xl mx-auto leading-relaxed">
+                            Bridging the gap between raw intelligence and autonomous action. Engineering the next generation of research agents.
+                        </p>
 
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-                        <a
-                            href="#projects"
-                            className="group px-10 py-4 rounded-full bg-white text-black font-bold hover:scale-105 transition-all flex items-center shadow-[0_0_20px_rgba(255,255,255,0.3)]"
-                        >
-                            Explore Systems
-                            <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                        </a>
+                        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+                            <a
+                                href="https://scholarpulse.streamlit.app/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="group btn-primary flex items-center gap-2"
+                            >
+                                <Rocket className="w-5 h-5" />
+                                Launch ScholarPulse
+                                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                            </a>
+
+                            <a
+                                href="#projects"
+                                className="btn-secondary flex items-center gap-2"
+                            >
+                                View Projects
+                            </a>
+                        </div>
 
                         <a
                             href="/resume.pdf"
-                            className="px-10 py-4 rounded-full glass-button text-white font-medium hover:scale-105 transition-all flex items-center"
+                            className="inline-flex items-center gap-2 text-gray-600 hover:text-indigo-600 transition-colors text-sm font-medium"
                         >
-                            <Download className="mr-2 w-5 h-5 opacity-70" />
-                            Curriculum Vitae
+                            <Download className="w-4 h-4" />
+                            Download CV
                         </a>
-                    </div>
-                </motion.div>
+                    </motion.div>
+                </div>
             </div>
 
             {/* Scroll Indicator */}
             <motion.div
                 animate={{ y: [0, 10, 0] }}
                 transition={{ duration: 2, repeat: Infinity }}
-                className="absolute bottom-10 left-1/2 -translate-x-1/2 text-zinc-600"
+                className="absolute bottom-10 left-1/2 -translate-x-1/2"
             >
-                <div className="w-px h-12 bg-gradient-to-b from-zinc-500 to-transparent" />
+                <div className="w-6 h-10 border-2 border-gray-300 rounded-full flex justify-center">
+                    <div className="w-1 h-2 bg-gray-400 rounded-full mt-2" />
+                </div>
             </motion.div>
         </section>
     );
