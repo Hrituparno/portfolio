@@ -2,17 +2,17 @@ import Layout from '../components/Layout';
 import About from '../components/About';
 import NarutoGuide from '../components/NarutoGuide';
 import { motion } from 'framer-motion';
-import { Home, ArrowLeft } from 'lucide-react';
+import { Home } from 'lucide-react';
 import Link from 'next/link';
 
 export default function AboutPage() {
     return (
         <Layout>
-            {/* Navigation Buttons */}
+            {/* Home Button */}
             <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                className="fixed top-24 left-4 z-40 flex flex-col gap-3"
+                className="fixed top-24 left-4 z-40"
             >
                 <Link href="/">
                     <motion.button
@@ -25,17 +25,6 @@ export default function AboutPage() {
                         HOME
                     </motion.button>
                 </Link>
-                
-                <motion.button
-                    onClick={() => window.history.back()}
-                    className="flex items-center gap-2 px-6 py-3 bg-cyan-500 text-white border-2 border-cyan-400 hover:bg-cyan-600 transition-all font-bold retro-text"
-                    whileHover={{ scale: 1.05, x: -5 }}
-                    whileTap={{ scale: 0.95 }}
-                    style={{ boxShadow: '0 0 20px rgba(0, 255, 204, 0.5)' }}
-                >
-                    <ArrowLeft className="w-5 h-5" />
-                    BACK
-                </motion.button>
             </motion.div>
 
             {/* Naruto Guide */}
