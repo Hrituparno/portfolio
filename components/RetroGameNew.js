@@ -1,0 +1,394 @@
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Gamepad2, Star, Zap, Home } from 'lucide-react';
+import Link from 'next/link';
+
+const gameDialogues = [
+    {
+        id: 1,
+        character: "🍜",
+        name: "Naruto Uzumaki",
+        text: "Hey there! I'm Naruto! Let me tell you about my friend Hrituparno - he's an awesome AI ninja! Want to learn about him?",
+        options: ["Yeah! Tell me!", "What does he do?", "Show me his skills!"]
+    },
+    {
+        id: 2,
+        character: "🍜",
+        name: "Naruto",
+        text: "Hrituparno builds autonomous multi-agent systems - it's like having Shadow Clones that think for themselves! He's an AI Research Engineer!",
+        options: ["That's amazing!", "Multi-agent systems?", "Tell me more!"]
+    },
+    {
+        id: 3,
+        character: "🍜",
+        name: "Naruto",
+        text: "He's got an M.Tech in Computer Science and teaches students at MIT Pune (Kalvium)! He's like a Sensei for Python, C++, and AI!",
+        options: ["Impressive!", "What projects?", "Continue!"]
+    },
+    {
+        id: 4,
+        character: "🍜",
+        name: "Naruto",
+        text: "His main jutsu is ScholarPulse - an AI that reads research papers and generates hypotheses! It's like my Rasengan, but for research!",
+        options: ["Awesome!", "What else?", "Show me more!"]
+    },
+    {
+        id: 5,
+        character: "🍜",
+        name: "Naruto",
+        text: "He also created Flash News - a multi-agent system for real-time news! It's faster than my ninja speed, dattebayo!",
+        options: ["Cool!", "His skills?", "Keep going!"]
+    },
+    {
+        id: 6,
+        character: "🍜",
+        name: "Naruto",
+        text: "His ninja techniques include Python, C++, Java, Deep Learning, NLP, LangChain, HuggingFace, and more! He's mastered them all!",
+        options: ["Incredible!", "His mission?", "What's his goal?"]
+    },
+    {
+        id: 7,
+        character: "🍜",
+        name: "Naruto",
+        text: "His ninja way is to bridge the gap between raw intelligence and autonomous action! Building the next generation of research agents!",
+        options: ["Inspiring!", "How to contact?", "Final words?"]
+    },
+    {
+        id: 8,
+        character: "🍜",
+        name: "Naruto",
+        text: "Ready to team up? You can reach him at hritupornochakraborty@gmail.com or on LinkedIn and GitHub! Believe it!",
+        options: ["Let's connect!", "Explore more!", "Unlock pages!"]
+    }
+];
+
+export default function RetroGame() {
+    const [gameStarted, setGameStarted] = useState(false);
+    const [currentDialogue, setCurrentDialogue] = useState(0);
+    const [score, setScore] = useState(0);
+    const [showScore, setShowScore] = useState(false);
+    const [particles, setParticles] = useState([]);
+    const [pagesUnlocked, setPagesUnlocked] = useState(false);
+
+    const dialogue = gameDialogues[currentDialogue];
+
+    const handleChoice = (choiceIndex) => {
+        setScore(score + 100);
+        createParticles();
+        
+        if (currentDialogue < gameDialogues.length - 1) {
+            setTimeout(() => {
+                setCurrentDialogue(currentDialogue + 1);
+            }, 300);
+        } else {
+            setPagesUnlocked(true);
+            setShowScore(true);
+        }
+    };
+
+    const createParticles = () => {
+        const newParticles = Array.from({ length: 15 }, (_, i) => ({
+            id: Date.now() + i,
+            x: Math.random() * 100,
+            y: Math.random() * 100,
+        }));
+        setParticles(newParticles);
+        setTimeout(() => setParticles([]), 1000);
+    };
+
+    const resetGame = () => {
+        setCurrentDialogue(0);
+        setScore(0);
+        setShowScore(false);
+        setGameStarted(true);
+        setPagesUnlocked(false);
+    };
+
+    if (!gameStarted) {
+        return (
+            <section id="retro-game" className="py-24 relative overflow-hidden min-h-screen flex items-center">
+                <div className="grid-overlay opacity-20" />
+                
+                <div className="container px-4 mx-auto max-w-4xl relative z-10">
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        className="text-center"
+                    >
+                        <motion.div
+                            animate={{ rotate: [0, 10, -10, 0] }}
+                            transition={{ duration: 2, repeat: Infinity }}
+                            className="inline-block mb-6"
+                        >
+                            <Gamepad2 className="w-20 h-20 text-orange-400" style={{ filter: 'drop-shadow(0 0 20px rgba(255, 140, 0, 0.6))' }} />
+                        </motion.div>
+                        
+                        <h2 className="text-5xl md:text-6xl font-bold mb-6 text-orange-400 retro-text" style={{ textShadow: '0 0 20px rgba(255, 140, 0, 0.5)' }}>
+                            NARUTO'S QUEST
+                        </h2>
+                        
+                        <p className="text-xl text-cyan-300 mb-8 max-w-2xl mx-auto">
+                            Join Naruto on an adventure to learn about Hrituparno's AI journey! Believe it! 🍜
+                        </p>
+                        
+                        <motion.button
+                            onClick={() => setGameStarted(true)}
+                            className="text-xl px-12 py-6 inline-flex items-center gap-3 bg-orange-500 text-white border-2 border-orange-400 hover:bg-orange-600 transition-all font-bold retro-text uppercase tracking-wider"
+                            whileHover={{ scale: 1.1 }}
+                            whileTap={{ scale: 0.95 }}
+                            animate={{ 
+                                boxShadow: [
+                                    '0 0 20px rgba(255, 140, 0, 0.3)',
+                                    '0 0 40px rgba(255, 140, 0, 0.6)',
+                                    '0 0 20px rgba(255, 140, 0, 0.3)'
+                                ]
+                            }}
+                            transition={{ duration: 2, repeat: Infinity }}
+                        >
+                            <Zap className="w-6 h-6" />
+                            START QUEST
+                        </motion.button>
+                        
+                        <div className="mt-12 text-orange-300/70 retro-text text-sm">
+                            Complete the quest to unlock all portfolio pages!
+                        </div>
+                    </motion.div>
+                </div>
+            </section>
+        );
+    }
+
+    if (showScore) {
+        return (
+            <section id="retro-game" className="py-24 relative overflow-hidden min-h-screen flex items-center">
+                <div className="grid-overlay opacity-20" />
+                
+                <div className="container px-4 mx-auto max-w-4xl relative z-10">
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        className="text-center"
+                    >
+                        <motion.div
+                            animate={{ rotate: 360 }}
+                            transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                            className="inline-block mb-6"
+                        >
+                            <Star className="w-24 h-24 text-yellow-400" style={{ filter: 'drop-shadow(0 0 30px rgba(255, 215, 0, 0.8))' }} />
+                        </motion.div>
+                        
+                        <h2 className="text-6xl font-bold mb-4 text-orange-400 retro-text" style={{ textShadow: '0 0 30px rgba(255, 140, 0, 0.8)' }}>
+                            QUEST COMPLETE!
+                        </h2>
+                        
+                        <p className="text-3xl text-cyan-300 mb-8">
+                            Final Score: <span className="text-yellow-400 font-bold">{score}</span> 🏆
+                        </p>
+                        
+                        <p className="text-xl text-orange-200/80 mb-12 max-w-2xl mx-auto">
+                            You've learned about Hrituparno's AI journey with Naruto! All pages are now unlocked, dattebayo!
+                        </p>
+                        
+                        {/* Unlocked Pages Grid */}
+                        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-12 max-w-3xl mx-auto">
+                            <Link href="/about">
+                                <motion.div
+                                    className="p-6 bg-gray-900/50 border-2 border-orange-400 hover:bg-orange-400/20 transition-all cursor-pointer"
+                                    whileHover={{ scale: 1.05, y: -5 }}
+                                    whileTap={{ scale: 0.95 }}
+                                >
+                                    <div className="text-4xl mb-2">📖</div>
+                                    <div className="text-orange-400 font-bold retro-text">ABOUT</div>
+                                </motion.div>
+                            </Link>
+
+                            <Link href="/skills">
+                                <motion.div
+                                    className="p-6 bg-gray-900/50 border-2 border-cyan-400 hover:bg-cyan-400/20 transition-all cursor-pointer"
+                                    whileHover={{ scale: 1.05, y: -5 }}
+                                    whileTap={{ scale: 0.95 }}
+                                >
+                                    <div className="text-4xl mb-2">⚡</div>
+                                    <div className="text-cyan-400 font-bold retro-text">SKILLS</div>
+                                </motion.div>
+                            </Link>
+
+                            <Link href="/projects">
+                                <motion.div
+                                    className="p-6 bg-gray-900/50 border-2 border-purple-400 hover:bg-purple-400/20 transition-all cursor-pointer"
+                                    whileHover={{ scale: 1.05, y: -5 }}
+                                    whileTap={{ scale: 0.95 }}
+                                >
+                                    <div className="text-4xl mb-2">🚀</div>
+                                    <div className="text-purple-400 font-bold retro-text">PROJECTS</div>
+                                </motion.div>
+                            </Link>
+
+                            <Link href="/experience">
+                                <motion.div
+                                    className="p-6 bg-gray-900/50 border-2 border-pink-400 hover:bg-pink-400/20 transition-all cursor-pointer"
+                                    whileHover={{ scale: 1.05, y: -5 }}
+                                    whileTap={{ scale: 0.95 }}
+                                >
+                                    <div className="text-4xl mb-2">🎓</div>
+                                    <div className="text-pink-400 font-bold retro-text">EXPERIENCE</div>
+                                </motion.div>
+                            </Link>
+
+                            <Link href="/contact">
+                                <motion.div
+                                    className="p-6 bg-gray-900/50 border-2 border-green-400 hover:bg-green-400/20 transition-all cursor-pointer"
+                                    whileHover={{ scale: 1.05, y: -5 }}
+                                    whileTap={{ scale: 0.95 }}
+                                >
+                                    <div className="text-4xl mb-2">📧</div>
+                                    <div className="text-green-400 font-bold retro-text">CONTACT</div>
+                                </motion.div>
+                            </Link>
+
+                            <motion.div
+                                onClick={resetGame}
+                                className="p-6 bg-gray-900/50 border-2 border-yellow-400 hover:bg-yellow-400/20 transition-all cursor-pointer"
+                                whileHover={{ scale: 1.05, y: -5 }}
+                                whileTap={{ scale: 0.95 }}
+                            >
+                                <div className="text-4xl mb-2">🎮</div>
+                                <div className="text-yellow-400 font-bold retro-text">PLAY AGAIN</div>
+                            </motion.div>
+                        </div>
+
+                        <p className="text-orange-300/70 retro-text text-sm">
+                            Click any page to explore! Use the HOME button to return here.
+                        </p>
+                    </motion.div>
+                </div>
+            </section>
+        );
+    }
+
+    return (
+        <section id="retro-game" className="py-24 relative overflow-hidden min-h-screen flex items-center">
+            <div className="grid-overlay opacity-20" />
+            
+            {/* Particle effects */}
+            <AnimatePresence>
+                {particles.map((particle) => (
+                    <motion.div
+                        key={particle.id}
+                        initial={{ opacity: 1, scale: 0, x: '50%', y: '50%' }}
+                        animate={{ 
+                            opacity: 0, 
+                            scale: 2,
+                            x: `${particle.x}%`,
+                            y: `${particle.y}%`
+                        }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 1 }}
+                        className="fixed w-4 h-4 bg-orange-400 rounded-full pointer-events-none"
+                        style={{ 
+                            left: '50%', 
+                            top: '50%',
+                            boxShadow: '0 0 20px rgba(255, 140, 0, 0.8)'
+                        }}
+                    />
+                ))}
+            </AnimatePresence>
+            
+            <div className="container px-4 mx-auto max-w-4xl relative z-10">
+                {/* Score Display */}
+                <motion.div 
+                    className="text-right mb-8"
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                >
+                    <div className="inline-block px-6 py-3 border-2 border-orange-400 bg-gray-900/80 backdrop-blur-sm">
+                        <span className="text-orange-400 font-bold retro-text text-xl">
+                            SCORE: {score}
+                        </span>
+                    </div>
+                </motion.div>
+
+                {/* Game Screen */}
+                <motion.div
+                    key={currentDialogue}
+                    initial={{ opacity: 0, x: 100 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -100 }}
+                    className="card relative border-orange-400/50"
+                >
+                    {/* Naruto Character Display */}
+                    <div className="text-center mb-8">
+                        <motion.div
+                            animate={{ 
+                                y: [0, -10, 0],
+                                rotate: [0, 5, -5, 0]
+                            }}
+                            transition={{ duration: 2, repeat: Infinity }}
+                            className="text-8xl mb-4 inline-block"
+                            style={{ filter: 'drop-shadow(0 0 20px rgba(255, 140, 0, 0.5))' }}
+                        >
+                            {dialogue.character}
+                        </motion.div>
+                        
+                        <h3 className="text-2xl font-bold text-orange-400 retro-text">
+                            {dialogue.name}
+                        </h3>
+                    </div>
+
+                    {/* Dialogue Box */}
+                    <motion.div
+                        initial={{ scale: 0.9 }}
+                        animate={{ scale: 1 }}
+                        className="bg-gray-800/50 border-2 border-orange-400/50 p-6 mb-8 relative"
+                    >
+                        <div className="absolute top-0 left-0 w-3 h-3 bg-orange-400"></div>
+                        <div className="absolute top-0 right-0 w-3 h-3 bg-orange-400"></div>
+                        <div className="absolute bottom-0 left-0 w-3 h-3 bg-orange-400"></div>
+                        <div className="absolute bottom-0 right-0 w-3 h-3 bg-orange-400"></div>
+                        
+                        <p className="text-cyan-100 text-lg leading-relaxed">
+                            {dialogue.text}
+                        </p>
+                    </motion.div>
+
+                    {/* Choice Buttons */}
+                    <div className="space-y-4">
+                        {dialogue.options.map((option, index) => (
+                            <motion.button
+                                key={index}
+                                onClick={() => handleChoice(index)}
+                                className="w-full px-6 py-4 bg-transparent border-2 border-orange-400/50 text-orange-300 hover:bg-orange-400/20 hover:border-orange-400 transition-all font-bold retro-text text-left flex items-center gap-3"
+                                whileHover={{ x: 10, scale: 1.02 }}
+                                whileTap={{ scale: 0.98 }}
+                                initial={{ opacity: 0, x: -20 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ delay: index * 0.1 }}
+                            >
+                                <span className="text-orange-400">▶</span>
+                                {option}
+                            </motion.button>
+                        ))}
+                    </div>
+
+                    {/* Progress Indicator */}
+                    <div className="mt-8 flex justify-center gap-2">
+                        {gameDialogues.map((_, index) => (
+                            <div
+                                key={index}
+                                className={`w-3 h-3 ${
+                                    index === currentDialogue 
+                                        ? 'bg-orange-400' 
+                                        : index < currentDialogue 
+                                        ? 'bg-cyan-400' 
+                                        : 'bg-gray-700'
+                                }`}
+                                style={index === currentDialogue ? { boxShadow: '0 0 10px rgba(255, 140, 0, 0.8)' } : {}}
+                            />
+                        ))}
+                    </div>
+                </motion.div>
+            </div>
+        </section>
+    );
+}
