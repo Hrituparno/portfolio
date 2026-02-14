@@ -1,24 +1,26 @@
+# Netlify Configuration for Next.js Portfolio
 [build]
   command = "npm run build"
   publish = ".next"
 
+# Use Netlify Next.js plugin for optimal performance
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
+# Environment settings
 [build.environment]
   NODE_VERSION = "18"
+  NPM_FLAGS = "--legacy-peer-deps"
 
-# Prevent caching issues
-[build.processing]
-  skip_processing = false
-
-# Headers for fresh content
+# Prevent caching issues - force fresh CSS/JS
 [[headers]]
   for = "/*"
   [headers.values]
     Cache-Control = "no-cache, no-store, must-revalidate"
-    X-Content-Type-Options = "nosniff"
+    Pragma = "no-cache"
+    Expires = "0"
 
+# Cache static assets for performance
 [[headers]]
   for = "/_next/static/*"
   [headers.values]
