@@ -11,6 +11,12 @@ export default function Layout({ children }) {
                 <meta name="description" content="AI Research Engineer specializing in Autonomous Multi-Agent Systems and LLM Micro-Architectures" />
                 <link rel="preconnect" href="https://fonts.googleapis.com" />
                 <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+                <style>{`
+                    body {
+                        background: #0a0a14 !important;
+                        color: #e0e0ff !important;
+                    }
+                `}</style>
             </Head>
             <div className="min-h-screen flex flex-col font-sans selection:bg-cyan-400/30" style={{ background: '#0a0a14', color: '#e0e0ff' }}>
                 <Navbar />
