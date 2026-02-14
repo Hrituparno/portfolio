@@ -73,7 +73,13 @@ export default function RetroGame() {
     const dialogue = gameDialogues[currentDialogue];
 
     const handleChoice = (choiceIndex) => {
-        setScore(score + 100);
+        // Award points based on choice quality
+        let points = 100;
+        if (choiceIndex === 0) points = 100; // Enthusiastic response
+        if (choiceIndex === 1) points = 100; // Curious response
+        if (choiceIndex === 2) points = 100; // Engaged response
+        
+        setScore(score + points);
         createParticles();
         
         if (currentDialogue < gameDialogues.length - 1) {
@@ -132,6 +138,12 @@ export default function RetroGame() {
                             Join Naruto on an adventure to learn about Hrituparno's AI journey! Believe it! 🍜
                         </p>
                         
+                        <div className="mb-8 p-4 border-2 border-orange-400/50 bg-orange-400/10 max-w-md mx-auto">
+                            <p className="text-orange-300 text-sm retro-text">
+                                💡 Each dialogue earns you 100 points! Complete all 8 to unlock pages and earn your ninja rank!
+                            </p>
+                        </div>
+                        
                         <motion.button
                             onClick={() => setGameStarted(true)}
                             className="text-xl px-12 py-6 inline-flex items-center gap-3 bg-orange-500 text-white border-2 border-orange-400 hover:bg-orange-600 transition-all font-bold retro-text uppercase tracking-wider"
@@ -179,12 +191,46 @@ export default function RetroGame() {
                         </motion.div>
                         
                         <h2 className="text-6xl font-bold mb-4 text-orange-400 retro-text" style={{ textShadow: '0 0 30px rgba(255, 140, 0, 0.8)' }}>
-                            QUEST COMPLETE!
+                            🍜 QUEST COMPLETE! 🍜
                         </h2>
                         
-                        <p className="text-3xl text-cyan-300 mb-8">
+                        <p className="text-3xl text-cyan-300 mb-4">
                             Final Score: <span className="text-yellow-400 font-bold">{score}</span> 🏆
                         </p>
+                        
+                        {/* Achievement Badge based on score */}
+                        <motion.div
+                            initial={{ scale: 0 }}
+                            animate={{ scale: 1 }}
+                            transition={{ delay: 0.5, type: "spring" }}
+                            className="inline-block mb-8"
+                        >
+                            {score === 800 ? (
+                                <div className="px-8 py-4 bg-gradient-to-r from-yellow-400 to-orange-400 border-4 border-yellow-300">
+                                    <div className="text-4xl mb-2">🥇</div>
+                                    <div className="text-gray-900 font-bold retro-text text-xl">HOKAGE RANK!</div>
+                                    <div className="text-gray-800 text-sm">Perfect Score - True Ninja!</div>
+                                </div>
+                            ) : score >= 600 ? (
+                                <div className="px-8 py-4 bg-gradient-to-r from-orange-400 to-red-400 border-4 border-orange-300">
+                                    <div className="text-4xl mb-2">🥈</div>
+                                    <div className="text-white font-bold retro-text text-xl">JONIN RANK!</div>
+                                    <div className="text-orange-100 text-sm">Elite Ninja Status</div>
+                                </div>
+                            ) : score >= 400 ? (
+                                <div className="px-8 py-4 bg-gradient-to-r from-cyan-400 to-blue-400 border-4 border-cyan-300">
+                                    <div className="text-4xl mb-2">🥉</div>
+                                    <div className="text-white font-bold retro-text text-xl">CHUNIN RANK!</div>
+                                    <div className="text-cyan-100 text-sm">Skilled Ninja</div>
+                                </div>
+                            ) : (
+                                <div className="px-8 py-4 bg-gradient-to-r from-green-400 to-teal-400 border-4 border-green-300">
+                                    <div className="text-4xl mb-2">🎖️</div>
+                                    <div className="text-white font-bold retro-text text-xl">GENIN RANK!</div>
+                                    <div className="text-green-100 text-sm">Beginner Ninja</div>
+                                </div>
+                            )}
+                        </motion.div>
                         
                         <p className="text-xl text-orange-200/80 mb-12 max-w-2xl mx-auto">
                             You've learned about Hrituparno's AI journey with Naruto! All pages are now unlocked, dattebayo!
