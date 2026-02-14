@@ -125,7 +125,7 @@ export default function RetroGame() {
                         </motion.div>
                         
                         <h2 className="text-5xl md:text-6xl font-bold mb-6 text-orange-400 retro-text" style={{ textShadow: '0 0 20px rgba(255, 140, 0, 0.5)' }}>
-                            NARUTO'S QUEST
+                            🍜 NARUTO'S QUEST 🍜
                         </h2>
                         
                         <p className="text-xl text-cyan-300 mb-8 max-w-2xl mx-auto">
