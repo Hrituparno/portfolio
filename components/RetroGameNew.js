@@ -325,10 +325,39 @@ export default function RetroGame() {
                                 rotate: [0, 5, -5, 0]
                             }}
                             transition={{ duration: 2, repeat: Infinity }}
-                            className="text-8xl mb-4 inline-block"
-                            style={{ filter: 'drop-shadow(0 0 20px rgba(255, 140, 0, 0.5))' }}
+                            className="inline-block mb-4 relative"
                         >
-                            {dialogue.character}
+                            {/* Naruto Image */}
+                            <div className="relative w-32 h-32 md:w-40 md:h-40">
+                                <img
+                                    src="/naruto-guide.jpg"
+                                    alt="Naruto"
+                                    className="w-full h-full object-contain"
+                                    style={{
+                                        filter: 'drop-shadow(0 0 20px rgba(255, 140, 0, 0.6))',
+                                    }}
+                                    onError={(e) => {
+                                        // Try PNG if JPG fails
+                                        if (e.target.src.includes('.jpg')) {
+                                            e.target.src = '/naruto-guide.png';
+                                        } else {
+                                            // Fallback to emoji if both fail
+                                            e.target.style.display = 'none';
+                                            e.target.parentElement.innerHTML = '<div class="text-8xl">🍜</div>';
+                                        }
+                                    }}
+                                />
+                            </div>
+
+                            {/* Chakra Glow Effect */}
+                            <motion.div
+                                animate={{
+                                    scale: [1, 1.3, 1],
+                                    opacity: [0.3, 0.7, 0.3]
+                                }}
+                                transition={{ duration: 2, repeat: Infinity }}
+                                className="absolute inset-0 bg-orange-400 rounded-full blur-2xl -z-10"
+                            />
                         </motion.div>
                         
                         <h3 className="text-2xl font-bold text-orange-400 retro-text">

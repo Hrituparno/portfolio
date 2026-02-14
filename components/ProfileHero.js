@@ -44,9 +44,24 @@ export default function ProfileHero() {
                                 style={{ transform: 'translate(10px, 10px)' }}
                             />
                             
-                            {/* Profile Image - Using CSS to create avatar */}
+                            {/* Profile Image - Actual Photo */}
                             <div className="relative z-20 overflow-hidden border-4 border-cyan-400 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
-                                <div className="relative aspect-square flex items-center justify-center">
+                                <div className="relative aspect-square">
+                                    {/* Actual Profile Image */}
+                                    <img
+                                        src="/profile.jpg"
+                                        alt="Hrituparno Chakraborty"
+                                        className="w-full h-full object-cover"
+                                        onError={(e) => {
+                                            // Fallback to placeholder if image fails to load
+                                            e.target.style.display = 'none';
+                                            const placeholder = document.createElement('div');
+                                            placeholder.className = 'w-full h-full flex items-center justify-center bg-gradient-to-br from-cyan-400/20 to-purple-400/20';
+                                            placeholder.innerHTML = '<div class="text-8xl">👨‍💻</div>';
+                                            e.target.parentElement.appendChild(placeholder);
+                                        }}
+                                    />
+                                    
                                     {/* Retro scan line effect overlay */}
                                     <div className="absolute inset-0 z-10 pointer-events-none" style={{
                                         background: 'repeating-linear-gradient(0deg, rgba(0, 255, 204, 0.03) 0px, transparent 2px, transparent 4px)',
@@ -54,46 +69,6 @@ export default function ProfileHero() {
                                     
                                     {/* Color overlay for retro effect */}
                                     <div className="absolute inset-0 z-10 bg-gradient-to-br from-cyan-400/10 via-transparent to-purple-400/10 mix-blend-overlay" />
-                                    
-                                    {/* Stylized Avatar */}
-                                    <div className="relative z-20 w-full h-full flex flex-col items-center justify-center p-12">
-                                        {/* Head */}
-                                        <motion.div 
-                                            className="w-32 h-32 rounded-full bg-gradient-to-br from-cyan-400 to-purple-400 mb-8 relative"
-                                            animate={{ 
-                                                boxShadow: [
-                                                    '0 0 30px rgba(0, 255, 204, 0.5)',
-                                                    '0 0 50px rgba(157, 78, 221, 0.7)',
-                                                    '0 0 30px rgba(0, 255, 204, 0.5)'
-                                                ]
-                                            }}
-                                            transition={{ duration: 3, repeat: Infinity }}
-                                        >
-                                            {/* Eyes */}
-                                            <div className="absolute top-12 left-8 w-4 h-4 bg-gray-900 rounded-full"></div>
-                                            <div className="absolute top-12 right-8 w-4 h-4 bg-gray-900 rounded-full"></div>
-                                            {/* Smile */}
-                                            <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 w-12 h-6 border-b-4 border-gray-900 rounded-full"></div>
-                                        </motion.div>
-                                        
-                                        {/* Body */}
-                                        <div className="w-40 h-48 bg-gradient-to-b from-purple-400 to-cyan-400 relative" style={{ clipPath: 'polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%)' }}>
-                                            <motion.div
-                                                animate={{ opacity: [0.5, 1, 0.5] }}
-                                                transition={{ duration: 2, repeat: Infinity }}
-                                                className="absolute inset-0 bg-gradient-to-t from-cyan-400/50 to-transparent"
-                                            />
-                                        </div>
-                                        
-                                        {/* Name Badge */}
-                                        <motion.div 
-                                            className="absolute bottom-8 left-1/2 transform -translate-x-1/2 px-6 py-2 bg-gray-900 border-2 border-cyan-400"
-                                            animate={{ y: [0, -5, 0] }}
-                                            transition={{ duration: 2, repeat: Infinity }}
-                                        >
-                                            <span className="text-cyan-400 font-bold retro-text text-sm">HC</span>
-                                        </motion.div>
-                                    </div>
                                     
                                     {/* Vignette effect */}
                                     <div className="absolute inset-0 z-10" style={{
