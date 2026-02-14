@@ -25,37 +25,48 @@ const skillCategories = [
 
 export default function Skills() {
     return (
-        <section id="skills" className="py-24 bg-white">
-            <div className="container px-4 mx-auto max-w-7xl">
-                <div className="text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">Technical Stack</h2>
-                    <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+        <section id="skills" className="py-24 relative">
+            <div className="grid-overlay opacity-20" />
+            
+            <div className="container px-4 mx-auto max-w-7xl relative z-10">
+                <motion.div 
+                    className="text-center mb-16"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                >
+                    <h2 className="text-4xl md:text-5xl font-bold mb-4 text-cyan-400 retro-text" style={{ textShadow: '0 0 20px rgba(0, 255, 204, 0.5)' }}>
+                        Technical Stack
+                    </h2>
+                    <p className="text-cyan-200/70 text-lg max-w-2xl mx-auto">
                         A comprehensive toolkit for building intelligent systems
                     </p>
-                    <div className="w-20 h-1 bg-indigo-600 mx-auto rounded-full mt-6" />
-                </div>
+                    <div className="w-20 h-1 bg-cyan-400 mx-auto mt-6" style={{ boxShadow: '0 0 10px rgba(0, 255, 204, 0.5)' }} />
+                </motion.div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {skillCategories.map((category, idx) => (
                         <motion.div
                             key={idx}
-                            initial={{ opacity: 0, y: 20 }}
+                            initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: idx * 0.1 }}
                             viewport={{ once: true }}
+                            whileHover={{ y: -5 }}
                             className="card group"
                         >
-                            <h3 className="text-xl font-bold mb-6 text-gray-900 group-hover:text-indigo-600 transition-colors">
+                            <h3 className="text-xl font-bold mb-6 text-purple-400 group-hover:text-purple-300 transition-colors retro-text">
                                 {category.title}
                             </h3>
                             <div className="flex flex-wrap gap-2">
                                 {category.skills.map((skill, sIdx) => (
-                                    <span
+                                    <motion.span
                                         key={sIdx}
-                                        className="px-4 py-2 text-sm rounded-full bg-gray-50 border border-gray-200 text-gray-700 hover:bg-indigo-50 hover:border-indigo-200 hover:text-indigo-700 transition-all cursor-default"
+                                        className="px-4 py-2 text-sm bg-gray-800/50 border border-cyan-400/30 text-cyan-300 hover:bg-cyan-400/10 hover:border-cyan-400 transition-all cursor-default font-bold"
+                                        whileHover={{ scale: 1.05 }}
                                     >
                                         {skill}
-                                    </span>
+                                    </motion.span>
                                 ))}
                             </div>
                         </motion.div>

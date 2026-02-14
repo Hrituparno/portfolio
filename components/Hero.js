@@ -1,78 +1,186 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, Download, Sparkles, Rocket } from 'lucide-react';
+import { ArrowRight, Download, Zap, Rocket } from 'lucide-react';
+import { useEffect, useState } from 'react';
 
 export default function Hero() {
+    const [stars, setStars] = useState([]);
+
+    useEffect(() => {
+        // Generate random stars
+        const newStars = Array.from({ length: 100 }, (_, i) => ({
+            id: i,
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
+            delay: Math.random() * 3,
+        }));
+        setStars(newStars);
+    }, []);
+
     return (
-        <section className="relative min-h-screen flex items-center justify-center pt-32 pb-20 overflow-hidden bg-gradient-to-br from-gray-50 via-white to-indigo-50">
-            {/* Decorative Elements */}
-            <div className="absolute top-20 right-10 w-72 h-72 bg-indigo-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob" />
-            <div className="absolute bottom-20 left-10 w-72 h-72 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000" />
-            <div className="absolute top-1/2 left-1/2 w-72 h-72 bg-pink-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-4000" />
+        <section className="relative min-h-screen flex items-center justify-center pt-32 pb-20 overflow-hidden">
+            {/* Starfield Background */}
+            <div className="stars">
+                {stars.map((star) => (
+                    <div
+                        key={star.id}
+                        className="star"
+                        style={{
+                            left: star.left,
+                            top: star.top,
+                            animationDelay: `${star.delay}s`,
+                        }}
+                    />
+                ))}
+            </div>
+
+            {/* Grid Overlay */}
+            <div className="grid-overlay" />
+
+            {/* Scan Line Effect */}
+            <div className="scan-line" />
+
+            {/* Floating Emojis */}
+            <motion.div
+                className="floating-emoji animate-float-slow"
+                style={{ top: '15%', right: '10%' }}
+                animate={{ rotate: [0, 10, -10, 0] }}
+                transition={{ duration: 8, repeat: Infinity }}
+            >
+                🍍
+            </motion.div>
+
+            <motion.div
+                className="floating-emoji animate-float"
+                style={{ bottom: '20%', left: '8%', fontSize: '3rem' }}
+                animate={{ rotate: [0, -15, 15, 0] }}
+                transition={{ duration: 6, repeat: Infinity, delay: 1 }}
+            >
+                ✋
+            </motion.div>
+
+            <motion.div
+                className="floating-emoji"
+                style={{ top: '40%', right: '15%', fontSize: '2.5rem' }}
+                animate={{ 
+                    y: [0, -30, 0],
+                    rotate: [0, 180, 360]
+                }}
+                transition={{ duration: 10, repeat: Infinity, delay: 2 }}
+            >
+                🚀
+            </motion.div>
+
+            <motion.div
+                className="floating-emoji animate-float-slow"
+                style={{ bottom: '30%', right: '20%', fontSize: '2rem' }}
+                animate={{ rotate: [0, 20, -20, 0] }}
+                transition={{ duration: 7, repeat: Infinity, delay: 3 }}
+            >
+                ⚡
+            </motion.div>
+
+            {/* Glowing Orbs */}
+            <div className="absolute top-20 right-10 w-96 h-96 bg-purple-500/20 rounded-full filter blur-[100px] animate-float-slow" />
+            <div className="absolute bottom-20 left-10 w-96 h-96 bg-cyan-500/20 rounded-full filter blur-[100px] animate-float animation-delay-2000" />
+            <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-pink-500/20 rounded-full filter blur-[100px] animate-float-slow animation-delay-4000" />
 
             <div className="container relative z-10 px-4 mx-auto">
                 <div className="max-w-5xl mx-auto">
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6 }}
+                        transition={{ duration: 0.8 }}
                         className="text-center"
                     >
-                        <div className="inline-flex items-center gap-2 py-2 px-5 rounded-full bg-indigo-50 border border-indigo-100 text-sm font-medium mb-8 text-indigo-700">
-                            <Sparkles className="w-4 h-4" />
+                        <motion.div 
+                            className="inline-flex items-center gap-2 py-2 px-5 border-2 border-cyan-400/50 text-sm font-bold mb-8 text-cyan-400 retro-text bg-gray-900/30 backdrop-blur-sm"
+                            animate={{ 
+                                boxShadow: [
+                                    '0 0 20px rgba(0, 255, 204, 0.3)',
+                                    '0 0 40px rgba(0, 255, 204, 0.6)',
+                                    '0 0 20px rgba(0, 255, 204, 0.3)'
+                                ]
+                            }}
+                            transition={{ duration: 2, repeat: Infinity }}
+                        >
+                            <Zap className="w-4 h-4" />
                             <span>Ready for 2026 Research Cohorts</span>
-                        </div>
+                        </motion.div>
 
-                        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 text-gray-900 leading-tight">
+                        <motion.h1 
+                            className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 leading-tight retro-text"
+                            style={{
+                                color: '#e0e0ff',
+                                textShadow: '0 0 30px rgba(0, 255, 204, 0.5), 0 0 60px rgba(157, 78, 221, 0.3)'
+                            }}
+                            animate={{
+                                textShadow: [
+                                    '0 0 30px rgba(0, 255, 204, 0.5), 0 0 60px rgba(157, 78, 221, 0.3)',
+                                    '0 0 40px rgba(0, 255, 204, 0.7), 0 0 80px rgba(157, 78, 221, 0.5)',
+                                    '0 0 30px rgba(0, 255, 204, 0.5), 0 0 60px rgba(157, 78, 221, 0.3)'
+                                ]
+                            }}
+                            transition={{ duration: 3, repeat: Infinity }}
+                        >
                             Hrituparno <br className="hidden sm:block" /> Chakraborty
-                        </h1>
+                        </motion.h1>
 
-                        <h2 className="text-xl md:text-3xl text-gray-600 font-normal mb-8 max-w-3xl mx-auto leading-relaxed">
-                            Pioneering <span className="gradient-text font-semibold">Autonomous Multi-Agent Systems</span> and LLM Micro-Architectures
+                        <h2 className="text-xl md:text-3xl text-purple-300 font-normal mb-8 max-w-3xl mx-auto leading-relaxed">
+                            Pioneering <span className="gradient-text font-bold">Autonomous Multi-Agent Systems</span> and LLM Micro-Architectures
                         </h2>
 
-                        <p className="text-gray-500 text-base md:text-lg mb-12 max-w-2xl mx-auto leading-relaxed">
+                        <p className="text-cyan-200/70 text-base md:text-lg mb-12 max-w-2xl mx-auto leading-relaxed font-light">
                             Bridging the gap between raw intelligence and autonomous action. Engineering the next generation of research agents.
                         </p>
 
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
-                            <a
+                            <motion.a
                                 href="https://scholarpulse.streamlit.app/"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="group btn-primary flex items-center gap-2"
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
                             >
                                 <Rocket className="w-5 h-5" />
                                 Launch ScholarPulse
                                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                            </a>
+                            </motion.a>
 
-                            <a
+                            <motion.a
                                 href="#projects"
                                 className="btn-secondary flex items-center gap-2"
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
                             >
                                 View Projects
-                            </a>
+                            </motion.a>
                         </div>
 
-                        <a
+                        <motion.a
                             href="/resume.pdf"
-                            className="inline-flex items-center gap-2 text-gray-600 hover:text-indigo-600 transition-colors text-sm font-medium"
+                            className="inline-flex items-center gap-2 text-cyan-400/70 hover:text-cyan-400 transition-colors text-sm font-bold retro-text"
+                            whileHover={{ scale: 1.1 }}
                         >
                             <Download className="w-4 h-4" />
                             Download CV
-                        </a>
+                        </motion.a>
                     </motion.div>
                 </div>
             </div>
 
-            {/* Scroll Indicator */}
+            {/* Retro Scroll Indicator */}
             <motion.div
-                animate={{ y: [0, 10, 0] }}
+                animate={{ y: [0, 15, 0] }}
                 transition={{ duration: 2, repeat: Infinity }}
                 className="absolute bottom-10 left-1/2 -translate-x-1/2"
             >
-                <div className="w-6 h-10 border-2 border-gray-300 rounded-full flex justify-center">
-                    <div className="w-1 h-2 bg-gray-400 rounded-full mt-2" />
+                <div className="w-6 h-10 border-2 border-cyan-400/50 flex justify-center" style={{ boxShadow: '0 0 10px rgba(0, 255, 204, 0.3)' }}>
+                    <motion.div 
+                        className="w-1 h-2 bg-cyan-400 mt-2"
+                        animate={{ opacity: [0.3, 1, 0.3] }}
+                        transition={{ duration: 2, repeat: Infinity }}
+                    />
                 </div>
             </motion.div>
         </section>

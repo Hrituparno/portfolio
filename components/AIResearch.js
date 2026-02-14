@@ -26,31 +26,46 @@ export default function AIResearch() {
     ];
 
     return (
-        <section id="ai-research" className="py-24 bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50">
-            <div className="container px-4 mx-auto max-w-7xl">
-                <div className="text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">Research Focus</h2>
-                    <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+        <section id="ai-research" className="py-24 relative">
+            <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-transparent to-cyan-900/20" />
+            <div className="grid-overlay opacity-40" />
+            
+            <div className="container px-4 mx-auto max-w-7xl relative z-10">
+                <motion.div 
+                    className="text-center mb-16"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                >
+                    <h2 className="text-4xl md:text-5xl font-bold mb-4 text-purple-400 retro-text" style={{ textShadow: '0 0 20px rgba(157, 78, 221, 0.5)' }}>
+                        Research Focus
+                    </h2>
+                    <p className="text-cyan-200/70 text-lg max-w-2xl mx-auto">
                         Exploring the intersection of autonomous systems and artificial intelligence
                     </p>
-                    <div className="w-20 h-1 bg-indigo-600 mx-auto rounded-full mt-6" />
-                </div>
+                    <div className="w-20 h-1 bg-purple-400 mx-auto mt-6" style={{ boxShadow: '0 0 10px rgba(157, 78, 221, 0.5)' }} />
+                </motion.div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {highlights.map((item, idx) => (
                         <motion.div
                             key={idx}
-                            initial={{ opacity: 0, y: 20 }}
+                            initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: idx * 0.1 }}
                             viewport={{ once: true }}
-                            className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all border border-gray-100 group"
+                            whileHover={{ y: -10 }}
+                            className="bg-gray-900/50 backdrop-blur-sm p-6 border-2 border-cyan-400/30 hover:border-cyan-400 transition-all group"
                         >
-                            <div className="p-3 bg-indigo-100 rounded-xl text-indigo-600 inline-block mb-4 group-hover:bg-indigo-600 group-hover:text-white transition-colors">
+                            <motion.div 
+                                className="p-3 bg-cyan-400/10 border-2 border-cyan-400/50 text-cyan-400 inline-block mb-4 group-hover:bg-cyan-400 group-hover:text-gray-900 transition-colors"
+                                whileHover={{ rotate: 360 }}
+                                transition={{ duration: 0.5 }}
+                            >
                                 {item.icon}
-                            </div>
-                            <h3 className="text-lg font-bold text-gray-900 mb-2">{item.title}</h3>
-                            <p className="text-gray-600 text-sm leading-relaxed">{item.description}</p>
+                            </motion.div>
+                            <h3 className="text-lg font-bold text-cyan-300 mb-2 retro-text">{item.title}</h3>
+                            <p className="text-cyan-100/70 text-sm leading-relaxed">{item.description}</p>
                         </motion.div>
                     ))}
                 </div>
