@@ -1,0 +1,160 @@
+╔══════════════════════════════════════════════════════════════╗
+║                                                              ║
+║   📸 ADD YOUR IMAGES HERE - STEP BY STEP                    ║
+║                                                              ║
+╚══════════════════════════════════════════════════════════════╝
+
+IMPORTANT: You need to manually add 2 images to see them on your site!
+
+═══════════════════════════════════════════════════════════════
+
+STEP 1: ADD YOUR PROFILE PHOTO
+═══════════════════════════════════════════════════════════════
+
+1. Find your photo (the one in checkered shirt you showed me)
+
+2. Right-click the photo → Rename → Type: profile.jpg
+
+3. Copy the file
+
+4. Navigate to: G:\Portfolio\public\
+
+5. Paste the file there
+
+6. Final location should be: G:\Portfolio\public\profile.jpg
+
+✓ Your photo will now show with retro effects!
+
+
+═══════════════════════════════════════════════════════════════
+
+STEP 2: ADD NARUTO IMAGE
+═══════════════════════════════════════════════════════════════
+
+Option A - Use the Naruto image you showed me:
+----------------------------------------------
+1. Find the Naruto image you showed me
+
+2. Right-click → Rename → Type: naruto-guide.png
+
+3. Copy the file
+
+4. Navigate to: G:\Portfolio\public\
+
+5. DELETE the existing naruto-guide.png file (it's just a placeholder)
+
+6. Paste your Naruto image
+
+7. Final location: G:\Portfolio\public\naruto-guide.png
+
+✓ Naruto will now appear in the game and on pages!
+
+
+Option B - Download a Naruto image:
+-----------------------------------
+1. Go to Google Images
+
+2. Search: "naruto png transparent"
+
+3. Find a good standing/action pose
+
+4. Download the image
+
+5. Rename to: naruto-guide.png
+
+6. Follow steps 4-7 from Option A above
+
+
+Option C - Keep the emoji (easiest):
+------------------------------------
+If you don't add the image, the site will show 🍜 (ramen bowl)
+This still looks good with all the effects!
+
+
+═══════════════════════════════════════════════════════════════
+
+STEP 3: COMMIT AND PUSH TO GITHUB
+═══════════════════════════════════════════════════════════════
+
+After adding the images:
+
+1. Open Command Prompt in G:\Portfolio
+
+2. Run these commands:
+
+   git add public/profile.jpg
+   git add public/naruto-guide.png
+   git commit -m "Add profile photo and Naruto guide image"
+   git push origin main
+
+3. Wait for Netlify to auto-deploy (2-3 minutes)
+
+4. Your images will now show on the live site!
+
+
+═══════════════════════════════════════════════════════════════
+
+QUICK CHECKLIST
+═══════════════════════════════════════════════════════════════
+
+Before deploying, verify:
+
+[ ] profile.jpg is in G:\Portfolio\public\
+[ ] naruto-guide.png is in G:\Portfolio\public\ (or keep emoji)
+[ ] Both files are actual images (not text files)
+[ ] File names are exactly: profile.jpg and naruto-guide.png
+[ ] Files are committed to git
+[ ] Files are pushed to GitHub
+
+
+═══════════════════════════════════════════════════════════════
+
+TROUBLESHOOTING
+═══════════════════════════════════════════════════════════════
+
+Images don't show after deploying?
+→ Check file names are EXACTLY: profile.jpg and naruto-guide.png
+→ Make sure they're in the public/ folder
+→ Hard refresh browser: Ctrl + Shift + R
+
+Can't find the public folder?
+→ Full path: G:\Portfolio\public\
+→ Open File Explorer and paste this path
+
+Images are too large?
+→ Compress them at: https://tinypng.com/
+→ Recommended: Under 500KB each
+
+Still not working?
+→ Check browser console (F12) for errors
+→ Verify files were pushed to GitHub
+→ Check Netlify build log
+
+
+═══════════════════════════════════════════════════════════════
+
+CURRENT STATUS
+═══════════════════════════════════════════════════════════════
+
+✓ Code is ready and deployed
+✓ Placeholder files exist
+⏳ Waiting for your actual images
+
+Once you add the images:
+→ Your professional photo will show with retro effects
+→ Naruto will appear in the game and guide visitors
+→ Portfolio will be 100% complete!
+
+
+═══════════════════════════════════════════════════════════════
+
+NEED HELP?
+═══════════════════════════════════════════════════════════════
+
+If you're having trouble:
+1. Make sure you're in the right folder: G:\Portfolio\public\
+2. Check file extensions are correct (.jpg and .png)
+3. Verify files are actual images (not text files)
+4. Try opening the images to confirm they work
+
+═══════════════════════════════════════════════════════════════
