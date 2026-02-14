@@ -64,6 +64,9 @@ export default function ProfileHero() {
                                         style={{
                                             filter: 'contrast(1.1) saturate(1.2)',
                                         }}
+                                        onError={(e) => {
+                                            e.target.src = '/profile-placeholder.svg';
+                                        }}
                                     />
                                     
                                     {/* Vignette effect */}

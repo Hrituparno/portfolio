@@ -1,0 +1,52 @@
+<svg width="800" height="800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00ffcc;stop-opacity:0.3" />
+      <stop offset="50%" style="stop-color:#9d4edd;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#ff006e;stop-opacity:0.3" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="800" fill="#0a0a14"/>
+  
+  <!-- Gradient overlay -->
+  <rect width="800" height="800" fill="url(#grad1)"/>
+  
+  <!-- Grid pattern -->
+  <defs>
+    <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#00ffcc" stroke-width="0.5" opacity="0.1"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="800" fill="url(#grid)"/>
+  
+  <!-- Profile silhouette -->
+  <circle cx="400" cy="320" r="120" fill="#00ffcc" opacity="0.3"/>
+  <circle cx="400" cy="320" r="115" fill="#0a0a14"/>
+  <circle cx="400" cy="320" r="80" fill="#00ffcc" opacity="0.5"/>
+  
+  <!-- Body -->
+  <ellipse cx="400" cy="550" rx="150" ry="180" fill="#00ffcc" opacity="0.3"/>
+  <ellipse cx="400" cy="550" rx="145" ry="175" fill="#0a0a14"/>
+  <ellipse cx="400" cy="550" rx="120" ry="150" fill="#9d4edd" opacity="0.5"/>
+  
+  <!-- Text -->
+  <text x="400" y="700" font-family="monospace" font-size="24" fill="#00ffcc" text-anchor="middle" font-weight="bold">
+    HRITUPARNO CHAKRABORTY
+  </text>
+  <text x="400" y="740" font-family="monospace" font-size="18" fill="#9d4edd" text-anchor="middle">
+    AI RESEARCH ENGINEER
+  </text>
+  
+  <!-- Decorative elements -->
+  <circle cx="200" cy="200" r="5" fill="#00ffcc" opacity="0.8">
+    <animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="600" cy="250" r="5" fill="#9d4edd" opacity="0.8">
+    <animate attributeName="opacity" values="0.3;1;0.3" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="250" cy="600" r="5" fill="#ff006e" opacity="0.8">
+    <animate attributeName="opacity" values="0.3;1;0.3" dur="2.5s" repeatCount="indefinite"/>
+  </circle>
+</svg>
