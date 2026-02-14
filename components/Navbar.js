@@ -17,6 +17,7 @@ export default function Navbar() {
 
     const navLinks = [
         { name: 'About', href: '#research' },
+        { name: 'Game', href: '#retro-game' },
         { name: 'Projects', href: '#projects' },
         { name: 'Skills', href: '#skills' },
         { name: 'Experience', href: '#experience' },

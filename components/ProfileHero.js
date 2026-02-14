@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
-import { Sparkles, Code, Brain, Rocket } from 'lucide-react';
-import Image from 'next/image';
+import { Sparkles, Code, Brain, Rocket, Github, Linkedin, Mail } from 'lucide-react';
 
 export default function ProfileHero() {
     return (
@@ -45,9 +44,9 @@ export default function ProfileHero() {
                                 style={{ transform: 'translate(10px, 10px)' }}
                             />
                             
-                            {/* Profile Image */}
-                            <div className="relative z-20 overflow-hidden border-4 border-cyan-400 bg-gray-900">
-                                <div className="relative aspect-square">
+                            {/* Profile Image - Using CSS to create avatar */}
+                            <div className="relative z-20 overflow-hidden border-4 border-cyan-400 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
+                                <div className="relative aspect-square flex items-center justify-center">
                                     {/* Retro scan line effect overlay */}
                                     <div className="absolute inset-0 z-10 pointer-events-none" style={{
                                         background: 'repeating-linear-gradient(0deg, rgba(0, 255, 204, 0.03) 0px, transparent 2px, transparent 4px)',
@@ -56,18 +55,45 @@ export default function ProfileHero() {
                                     {/* Color overlay for retro effect */}
                                     <div className="absolute inset-0 z-10 bg-gradient-to-br from-cyan-400/10 via-transparent to-purple-400/10 mix-blend-overlay" />
                                     
-                                    {/* Image */}
-                                    <img
-                                        src="/profile.jpg"
-                                        alt="Hrituparno Chakraborty"
-                                        className="w-full h-full object-cover"
-                                        style={{
-                                            filter: 'contrast(1.1) saturate(1.2)',
-                                        }}
-                                        onError={(e) => {
-                                            e.target.src = '/profile-placeholder.svg';
-                                        }}
-                                    />
+                                    {/* Stylized Avatar */}
+                                    <div className="relative z-20 w-full h-full flex flex-col items-center justify-center p-12">
+                                        {/* Head */}
+                                        <motion.div 
+                                            className="w-32 h-32 rounded-full bg-gradient-to-br from-cyan-400 to-purple-400 mb-8 relative"
+                                            animate={{ 
+                                                boxShadow: [
+                                                    '0 0 30px rgba(0, 255, 204, 0.5)',
+                                                    '0 0 50px rgba(157, 78, 221, 0.7)',
+                                                    '0 0 30px rgba(0, 255, 204, 0.5)'
+                                                ]
+                                            }}
+                                            transition={{ duration: 3, repeat: Infinity }}
+                                        >
+                                            {/* Eyes */}
+                                            <div className="absolute top-12 left-8 w-4 h-4 bg-gray-900 rounded-full"></div>
+                                            <div className="absolute top-12 right-8 w-4 h-4 bg-gray-900 rounded-full"></div>
+                                            {/* Smile */}
+                                            <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 w-12 h-6 border-b-4 border-gray-900 rounded-full"></div>
+                                        </motion.div>
+                                        
+                                        {/* Body */}
+                                        <div className="w-40 h-48 bg-gradient-to-b from-purple-400 to-cyan-400 relative" style={{ clipPath: 'polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%)' }}>
+                                            <motion.div
+                                                animate={{ opacity: [0.5, 1, 0.5] }}
+                                                transition={{ duration: 2, repeat: Infinity }}
+                                                className="absolute inset-0 bg-gradient-to-t from-cyan-400/50 to-transparent"
+                                            />
+                                        </div>
+                                        
+                                        {/* Name Badge */}
+                                        <motion.div 
+                                            className="absolute bottom-8 left-1/2 transform -translate-x-1/2 px-6 py-2 bg-gray-900 border-2 border-cyan-400"
+                                            animate={{ y: [0, -5, 0] }}
+                                            transition={{ duration: 2, repeat: Infinity }}
+                                        >
+                                            <span className="text-cyan-400 font-bold retro-text text-sm">HC</span>
+                                        </motion.div>
+                                    </div>
                                     
                                     {/* Vignette effect */}
                                     <div className="absolute inset-0 z-10" style={{
@@ -167,6 +193,37 @@ export default function ProfileHero() {
                                 <div className="text-2xl font-bold text-pink-400 retro-text">2</div>
                                 <div className="text-xs text-pink-300/70 retro-text">Degrees</div>
                             </motion.div>
+                        </div>
+
+                        {/* Social Links */}
+                        <div className="flex gap-4 mb-8">
+                            <motion.a
+                                href="https://github.com/Hrituparno"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="p-3 border-2 border-cyan-400/50 bg-gray-900/50 hover:bg-cyan-400/20 hover:border-cyan-400 transition-all"
+                                whileHover={{ scale: 1.1, rotate: 5 }}
+                            >
+                                <Github className="w-6 h-6 text-cyan-400" />
+                            </motion.a>
+                            
+                            <motion.a
+                                href="https://www.linkedin.com/in/hrituparno-chakkraborty-6a0353230/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="p-3 border-2 border-purple-400/50 bg-gray-900/50 hover:bg-purple-400/20 hover:border-purple-400 transition-all"
+                                whileHover={{ scale: 1.1, rotate: -5 }}
+                            >
+                                <Linkedin className="w-6 h-6 text-purple-400" />
+                            </motion.a>
+                            
+                            <motion.a
+                                href="mailto:hritupornochakraborty@gmail.com"
+                                className="p-3 border-2 border-pink-400/50 bg-gray-900/50 hover:bg-pink-400/20 hover:border-pink-400 transition-all"
+                                whileHover={{ scale: 1.1, rotate: 5 }}
+                            >
+                                <Mail className="w-6 h-6 text-pink-400" />
+                            </motion.a>
                         </div>
 
                         {/* CTA Buttons */}

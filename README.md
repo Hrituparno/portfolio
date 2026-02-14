@@ -1,6 +1,37 @@
 # Hrituparno Chakraborty - AI Research Portfolio
 
-A retro-futuristic, 90s-inspired portfolio website with spacey aesthetics, floating elements, and neon glow effects. Built with Next.js, Tailwind CSS, and Framer Motion.
+A retro-futuristic, 90s-inspired **interactive game portfolio** with spacey aesthetics, floating elements, and neon glow effects. Built with Next.js, Tailwind CSS, and Framer Motion.
+
+## 🎮 NEW: Interactive Retro Game!
+
+Your portfolio now features an **interactive 90s-style arcade game** where visitors learn about you by playing! 
+
+### Game Features:
+- 🤖 **8 AI Characters** telling your story through dialogue
+- ⚡ **Score System** - Earn points for each interaction
+- ✨ **Particle Effects** - Glowing animations on every click
+- 📊 **Progress Tracking** - Visual indicators of game progress
+- 🏆 **Completion Screen** - Final score with CTAs
+
+### Characters You'll Meet:
+1. 🤖 AI Bot - Introduction
+2. 🧠 Neural Network - Your expertise
+3. 🎓 Professor Bot - Education
+4. 🚀 ScholarPulse AI - Flagship project
+5. ⚡ Flash News Bot - Multi-agent system
+6. 💻 Code Master - Tech stack
+7. 🌟 Vision AI - Your mission
+8. 📧 Contact Bot - How to reach you
+
+## 📸 Professional Profile Section
+
+Features your photo with automatic retro effects:
+- Dual glowing borders (cyan + purple)
+- Animated pulsing glow
+- Scan line overlay
+- 90s color grading
+- Floating emoji decorations
+- Stats display (Languages, Projects, Degrees)
 
 ## 🎨 Design Inspiration
 
@@ -29,10 +60,11 @@ Inspired by [Lars Olson's portfolio](https://www.lars-olson.com/), this site fea
 ## Project Structure
 ```
 /
-├── api/                # Python backend (FastAPI)
-│   └── index.py        # API entry point
+├── api/                # Python backend (not used in Netlify)
 ├── components/         # React components
 │   ├── Hero.js         # Hero section with floating elements & starfield
+│   ├── ProfileHero.js  # Professional profile with photo effects ⭐ NEW
+│   ├── RetroGame.js    # Interactive game component 🎮 NEW
 │   ├── About.js        # About section with retro styling
 │   ├── Projects.js     # Projects showcase with neon borders
 │   ├── Skills.js       # Technical stack with glowing cards
@@ -46,45 +78,67 @@ Inspired by [Lars Olson's portfolio](https://www.lars-olson.com/), this site fea
 │   ├── _app.js         # Global app wrapper
 │   └── index.js        # Main landing page
 ├── public/             # Static assets
+│   ├── profile.jpg     # Your professional photo (add this!) 📸
+│   └── profile-placeholder.svg  # Placeholder until photo added
 ├── styles/             # Global styles
 │   └── globals.css     # Custom animations & retro effects
-├── next.config.js      # Next.js config
+├── netlify.toml        # Netlify deployment config
 ├── package.json        # Frontend dependencies
-├── requirements.txt    # Backend dependencies
 ├── tailwind.config.js  # Tailwind config with custom colors
-└── vercel.json         # Vercel deployment config
+├── PHOTO-SETUP.md      # Photo setup instructions 📸
+├── GAME-FEATURES.md    # Game documentation 🎮
+└── ADD-PHOTO-HERE.txt  # Quick photo guide
 ```
 
-## Local Development
+## 🚀 Quick Start
 
-Since you don't have npm locally and the site is already deployed on GitHub, you can:
+### 1. Add Your Photo (Important!)
+```bash
+# Save your photo as profile.jpg in the public/ folder
+# Location: public/profile.jpg
+# See ADD-PHOTO-HERE.txt for detailed instructions
+```
 
-1. **Make changes directly on GitHub** (for small edits)
-2. **Use GitHub Codespaces** (cloud-based VS Code)
-3. **Or install Node.js locally:**
-   ```bash
-   # Install dependencies
-   npm install
-   
-   # Run development server
-   npm run dev
-   ```
-   Open [http://localhost:3000](http://localhost:3000)
+### 2. Deploy to Netlify
 
-## Deployment on Vercel
+Since you don't have npm locally and the site is already on GitHub:
 
-Your site is already deployed! To update:
+1. **Go to Netlify**: https://app.netlify.com/
+2. **Sign up/Login** with GitHub
+3. **Add new site** → Import from GitHub
+4. **Select** your portfolio repository
+5. **Build settings**:
+   - Build command: `npm run build`
+   - Publish directory: `.next`
+6. **Deploy!** (takes 2-3 minutes)
 
-1. **Push changes to GitHub:**
-   ```bash
-   git add .
-   git commit -m "Update to retro 90s design"
-   git push origin main
-   ```
+### 3. Auto-Deploy on Push
+Every time you push to GitHub, Netlify automatically rebuilds and deploys!
 
-2. **Vercel auto-deploys** from your GitHub repository
-   - Every push to `main` triggers a new deployment
-   - Check deployment status at [vercel.com](https://vercel.com)
+```bash
+git add .
+git commit -m "Update portfolio"
+git push origin main
+```
+
+## 🎮 Interactive Game
+
+Play the retro quest to learn about Hrituparno's journey:
+- Navigate through 8 dialogue scenes
+- Meet different AI characters
+- Earn points for each interaction
+- Complete the quest to unlock contact info
+
+## 📸 Photo Setup
+
+**Important**: Add your professional photo for the best experience!
+
+1. Save your photo as `profile.jpg`
+2. Place in `public/` folder
+3. Commit and push to GitHub
+4. Netlify auto-deploys with your photo!
+
+See `PHOTO-SETUP.md` for detailed instructions.
 
 ## Key Features
 
