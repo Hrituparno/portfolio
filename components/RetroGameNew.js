@@ -70,6 +70,31 @@ export default function RetroGame() {
     const [particles, setParticles] = useState([]);
     const [pagesUnlocked, setPagesUnlocked] = useState(false);
 
+    // Load game progress from localStorage on mount
+    useEffect(() => {
+        const savedProgress = localStorage.getItem('narutoQuestProgress');
+        if (savedProgress) {
+            const progress = JSON.parse(savedProgress);
+            setGameStarted(progress.gameStarted || false);
+            setCurrentDialogue(progress.currentDialogue || 0);
+            setScore(progress.score || 0);
+            setShowScore(progress.showScore || false);
+            setPagesUnlocked(progress.pagesUnlocked || false);
+        }
+    }, []);
+
+    // Save game progress to localStorage whenever it changes
+    useEffect(() => {
+        const progress = {
+            gameStarted,
+            currentDialogue,
+            score,
+            showScore,
+            pagesUnlocked
+        };
+        localStorage.setItem('narutoQuestProgress', JSON.stringify(progress));
+    }, [gameStarted, currentDialogue, score, showScore, pagesUnlocked]);
+
     const dialogue = gameDialogues[currentDialogue];
 
     const handleChoice = (choiceIndex) => {
@@ -363,69 +388,74 @@ export default function RetroGame() {
                     exit={{ opacity: 0, x: -100 }}
                     className="card relative border-orange-400/50"
                 >
-                    {/* Naruto Character Display */}
-                    <div className="text-center mb-8">
-                        <motion.div
-                            animate={{ 
-                                y: [0, -10, 0],
-                                rotate: [0, 5, -5, 0]
-                            }}
-                            transition={{ duration: 2, repeat: Infinity }}
-                            className="inline-block mb-4 relative"
-                        >
-                            {/* Naruto Image */}
-                            <div className="relative w-32 h-32 md:w-40 md:h-40">
-                                <img
-                                    src="/naruto-guide.jpg"
-                                    alt="Naruto"
-                                    className="w-full h-full object-contain"
-                                    style={{
-                                        filter: 'drop-shadow(0 0 20px rgba(255, 140, 0, 0.6))',
-                                    }}
-                                    onError={(e) => {
-                                        // Try PNG if JPG fails
-                                        if (e.target.src.includes('.jpg')) {
-                                            e.target.src = '/naruto-guide.png';
-                                        } else {
-                                            // Fallback to emoji if both fail
-                                            e.target.style.display = 'none';
-                                            e.target.parentElement.innerHTML = '<div class="text-8xl">🍜</div>';
-                                        }
-                                    }}
-                                />
-                            </div>
-
-                            {/* Chakra Glow Effect */}
+                    {/* Naruto Character and Dialogue - Side by Side */}
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                        {/* Naruto Character Display */}
+                        <div className="flex flex-col items-center justify-center">
                             <motion.div
-                                animate={{
-                                    scale: [1, 1.3, 1],
-                                    opacity: [0.3, 0.7, 0.3]
+                                animate={{ 
+                                    y: [0, -10, 0],
+                                    rotate: [0, 5, -5, 0]
                                 }}
                                 transition={{ duration: 2, repeat: Infinity }}
-                                className="absolute inset-0 bg-orange-400 rounded-full blur-2xl -z-10"
-                            />
-                        </motion.div>
-                        
-                        <h3 className="text-2xl font-bold text-orange-400 retro-text">
-                            {dialogue.name}
-                        </h3>
-                    </div>
+                                className="relative mb-4"
+                            >
+                                {/* Naruto Image */}
+                                <div className="relative w-32 h-32 md:w-40 md:h-40">
+                                    <img
+                                        src="/naruto-guide.jpg"
+                                        alt="Naruto"
+                                        className="w-full h-full object-contain"
+                                        style={{
+                                            filter: 'drop-shadow(0 0 20px rgba(255, 140, 0, 0.6))',
+                                        }}
+                                        onError={(e) => {
+                                            // Try PNG if JPG fails
+                                            if (e.target.src.includes('.jpg')) {
+                                                e.target.src = '/naruto-guide.png';
+                                            } else {
+                                                // Fallback to emoji if both fail
+                                                e.target.style.display = 'none';
+                                                e.target.parentElement.innerHTML = '<div class="text-8xl">🍜</div>';
+                                            }
+                                        }}
+                                    />
+                                </div>
 
-                    {/* Dialogue Box */}
-                    <motion.div
-                        initial={{ scale: 0.9 }}
-                        animate={{ scale: 1 }}
-                        className="bg-gray-800/50 border-2 border-orange-400/50 p-6 mb-8 relative"
-                    >
-                        <div className="absolute top-0 left-0 w-3 h-3 bg-orange-400"></div>
-                        <div className="absolute top-0 right-0 w-3 h-3 bg-orange-400"></div>
-                        <div className="absolute bottom-0 left-0 w-3 h-3 bg-orange-400"></div>
-                        <div className="absolute bottom-0 right-0 w-3 h-3 bg-orange-400"></div>
-                        
-                        <p className="text-cyan-100 text-lg leading-relaxed">
-                            {dialogue.text}
-                        </p>
-                    </motion.div>
+                                {/* Chakra Glow Effect */}
+                                <motion.div
+                                    animate={{
+                                        scale: [1, 1.3, 1],
+                                        opacity: [0.3, 0.7, 0.3]
+                                    }}
+                                    transition={{ duration: 2, repeat: Infinity }}
+                                    className="absolute inset-0 bg-orange-400 rounded-full blur-2xl -z-10"
+                                />
+                            </motion.div>
+                            
+                            <h3 className="text-xl md:text-2xl font-bold text-orange-400 retro-text text-center">
+                                {dialogue.name}
+                            </h3>
+                        </div>
+
+                        {/* Dialogue Box */}
+                        <div className="md:col-span-2">
+                            <motion.div
+                                initial={{ scale: 0.9 }}
+                                animate={{ scale: 1 }}
+                                className="bg-gray-800/50 border-2 border-orange-400/50 p-6 relative h-full flex items-center"
+                            >
+                                <div className="absolute top-0 left-0 w-3 h-3 bg-orange-400"></div>
+                                <div className="absolute top-0 right-0 w-3 h-3 bg-orange-400"></div>
+                                <div className="absolute bottom-0 left-0 w-3 h-3 bg-orange-400"></div>
+                                <div className="absolute bottom-0 right-0 w-3 h-3 bg-orange-400"></div>
+                                
+                                <p className="text-cyan-100 text-base md:text-lg leading-relaxed">
+                                    {dialogue.text}
+                                </p>
+                            </motion.div>
+                        </div>
+                    </div>
 
                     {/* Choice Buttons */}
                     <div className="space-y-4">
