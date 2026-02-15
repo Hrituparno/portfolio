@@ -123,7 +123,7 @@ export default function ProfileHero() {
                             transition={{ duration: 2, repeat: Infinity }}
                         >
                             <Sparkles className="w-4 h-4 text-cyan-400" />
-                            <span className="text-cyan-400 font-bold retro-text text-sm">AI RESEARCH ENGINEER</span>
+                            <span className="text-cyan-400 font-bold retro-text text-sm">TECHNICAL MENTOR | AI ENGINEER</span>
                         </motion.div>
 
                         <h2 className="text-4xl md:text-5xl font-bold mb-6 text-cyan-400 retro-text" style={{ textShadow: '0 0 20px rgba(0, 255, 204, 0.5)' }}>
@@ -132,11 +132,11 @@ export default function ProfileHero() {
 
                         <div className="space-y-4 text-cyan-100/80 text-lg leading-relaxed mb-8">
                             <p>
-                                <span className="text-purple-400 font-bold">Hrituparno Chakraborty</span> is pioneering the future of autonomous AI systems. With expertise in multi-agent architectures and LLM pipelines, he's building the next generation of intelligent research agents.
+                                <span className="text-purple-400 font-bold">Hrituparno Chakraborty</span> is a Technical Mentor at MIT Pune (Kalvium) building production-ready AI systems. Specializing in multi-agent architectures, LLM orchestration, and autonomous reasoning pipelines for real-world applications.
                             </p>
                             
                             <p>
-                                Currently mentoring future AI engineers at <span className="text-cyan-400 font-bold">MIT Pune (Kalvium)</span>, he combines academic excellence with hands-on innovation.
+                                Actively transitioning into Applied AI / GenAI Engineering roles, with hands-on experience in agent-based systems, prompt engineering, and end-to-end AI workflows. Focused on bridging research concepts with scalable engineering solutions.
                             </p>
                         </div>
 

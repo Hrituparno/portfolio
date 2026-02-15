@@ -104,7 +104,7 @@ export default function Hero() {
                             transition={{ duration: 2, repeat: Infinity }}
                         >
                             <Zap className="w-4 h-4" />
-                            <span>Ready for 2026 Research Cohorts</span>
+                            <span>Technical Mentor → Building AI Systems</span>
                         </motion.div>
 
                         <motion.h1 
@@ -126,11 +126,11 @@ export default function Hero() {
                         </motion.h1>
 
                         <h2 className="text-xl md:text-3xl text-purple-300 font-normal mb-8 max-w-3xl mx-auto leading-relaxed">
-                            Pioneering <span className="gradient-text font-bold">Autonomous Multi-Agent Systems</span> and LLM Micro-Architectures
+                            Building <span className="gradient-text font-bold">Autonomous AI Systems</span> with Multi-Agent Architectures and LLM Orchestration
                         </h2>
 
                         <p className="text-cyan-200/70 text-base md:text-lg mb-12 max-w-2xl mx-auto leading-relaxed font-light">
-                            Bridging the gap between raw intelligence and autonomous action. Engineering the next generation of research agents.
+                            Technical Mentor transitioning into Applied AI Engineering. Designing and implementing agentic systems, LLM pipelines, and autonomous research workflows.
                         </p>
 
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">

@@ -8,56 +8,56 @@ const gameDialogues = [
         id: 1,
         character: "🍜",
         name: "Naruto Uzumaki",
-        text: "Hey there! I'm Naruto! Let me tell you about my friend Hrituparno - he's an awesome AI ninja! Want to learn about him?",
+        text: "Hey! I'm Naruto! Let me tell you about Hrituparno - he's a Technical Mentor building AI systems! Want to learn about his work?",
         options: ["Yeah! Tell me!", "What does he do?", "Show me his skills!"]
     },
     {
         id: 2,
         character: "🍜",
         name: "Naruto",
-        text: "Hrituparno builds autonomous multi-agent systems - it's like having Shadow Clones that think for themselves! He's an AI Research Engineer!",
+        text: "He builds multi-agent systems - like having Shadow Clones that think and plan autonomously! He's transitioning into Applied AI Engineering!",
         options: ["That's amazing!", "Multi-agent systems?", "Tell me more!"]
     },
     {
         id: 3,
         character: "🍜",
         name: "Naruto",
-        text: "He's got an M.Tech in Computer Science and teaches students at MIT Pune (Kalvium)! He's like a Sensei for Python, C++, and AI!",
+        text: "He's a Technical Mentor at MIT Pune (Kalvium) teaching Python, C++, and AI! Plus he has an M.Tech in Computer Science!",
         options: ["Impressive!", "What projects?", "Continue!"]
     },
     {
         id: 4,
         character: "🍜",
         name: "Naruto",
-        text: "His main jutsu is ScholarPulse - an AI that reads research papers and generates hypotheses! It's like my Rasengan, but for research!",
+        text: "His main project is ScholarPulse - an autonomous research agent that reads papers and generates hypotheses! It's like my Rasengan, but for AI research!",
         options: ["Awesome!", "What else?", "Show me more!"]
     },
     {
         id: 5,
         character: "🍜",
         name: "Naruto",
-        text: "He also created Flash News - a multi-agent system for real-time news! It's faster than my ninja speed, dattebayo!",
+        text: "He also built Flash News - a multi-agent system using CrewAI for real-time news! Agent orchestration at ninja speed, dattebayo!",
         options: ["Cool!", "His skills?", "Keep going!"]
     },
     {
         id: 6,
         character: "🍜",
         name: "Naruto",
-        text: "His ninja techniques include Python, C++, Java, Deep Learning, NLP, LangChain, HuggingFace, and more! He's mastered them all!",
+        text: "His tech stack: Python, C++, Java, LangChain, CrewAI, HuggingFace, Deep Learning, NLP, and cloud deployment! He's mastered them all!",
         options: ["Incredible!", "His mission?", "What's his goal?"]
     },
     {
         id: 7,
         character: "🍜",
         name: "Naruto",
-        text: "His ninja way is to bridge the gap between raw intelligence and autonomous action! Building the next generation of research agents!",
+        text: "His mission: Build autonomous AI systems that reason, plan, and execute. Transitioning into Applied AI / GenAI Engineering roles!",
         options: ["Inspiring!", "How to contact?", "Final words?"]
     },
     {
         id: 8,
         character: "🍜",
         name: "Naruto",
-        text: "Ready to team up? You can reach him at hritupornochakraborty@gmail.com or on LinkedIn and GitHub! Believe it!",
+        text: "Ready to connect? Reach him at hritupornochakraborty@gmail.com or LinkedIn/GitHub! He's looking for AI Engineering opportunities!",
         options: ["Let's connect!", "Explore more!", "Unlock pages!"]
     }
 ];

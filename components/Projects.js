@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 const highlightProjects = [
     {
         name: "ScholarPulse",
-        description: "Autonomous AI system simulating human research workflow. Features arXiv literature ingestion, hypothesis generation, and Gemini LLM integration.",
+        description: "Autonomous research agent simulating human literature review workflow. Implements arXiv paper ingestion, semantic search, hypothesis generation using Gemini LLM, and structured reasoning chains. Built with agent orchestration patterns and multi-step planning architecture.",
         tags: ["Streamlit", "Django", "Gemini API", "Autonomous Agents"],
         githubUrl: "https://github.com/Hrituparno/scholarpulse",
         demoUrl: "https://scholarpulse.streamlit.app/",
@@ -15,7 +15,7 @@ const highlightProjects = [
     },
     {
         name: "Flash News App",
-        description: "Multi-agent engine for real-time news research. Native sub-path integration.",
+        description: "Multi-agent news research system using CrewAI for task decomposition and parallel execution. Implements agent coordination, real-time data aggregation, and structured output generation. Demonstrates practical agent-based architecture for information synthesis.",
         tags: ["Flask", "CrewAI", "Python"],
         githubUrl: "https://github.com/Hrituparno/Flask_News_App",
         demoUrl: "https://flask-news-app.vercel.app/",
@@ -24,7 +24,7 @@ const highlightProjects = [
     },
     {
         name: "Translation Hub",
-        description: "Interactive Gradio interface for transformer-based NLP translation.",
+        description: "Production-ready NLP translation interface using HuggingFace transformers. Interactive Gradio deployment showcasing model integration, inference optimization, and user-friendly AI application design.",
         tags: ["HuggingFace", "Gradio", "NLP"],
         githubUrl: "https://github.com/Hrituparno/translation-hub",
         demoUrl: "https://huggingface.co/spaces/hrituparno/translation-hub",

@@ -27,17 +27,13 @@ export default function About() {
                         transition={{ delay: 0.2 }}
                     >
                         <p>
-                            AI Research Engineer with experience in literature review, hypothesis generation,
-                            experimentation, and evaluation. My work focuses on building autonomous systems
-                            that can reason, plan, and execute complex tasks.
+                            Technical Mentor at MIT Pune (Kalvium) with strong focus on Applied AI and Autonomous Systems. Building multi-agent architectures, LLM-powered applications, and end-to-end AI pipelines. Experienced in designing agentic workflows, prompt engineering, and integrating LLMs into production systems.
                         </p>
                         <p>
-                            I serve as an <span className="text-cyan-400 font-bold">Academic Mentor at MIT Pune (Kalvium)</span>, where I guide
-                            students in mastering Python, C++, and building real-world AI applications.
+                            Currently mentoring students in <span className="text-cyan-400 font-bold">Python, C++, and AI development</span> while actively building AI projects. Hands-on experience with LangChain, CrewAI, HuggingFace, and cloud deployment.
                         </p>
                         <p>
-                            With a strong foundation in <span className="text-purple-400 font-bold">Machine Learning, Deep Learning, and AI Systems</span>,
-                            I aim to bridge the gap between theoretical research and scalable, production-ready AI solutions.
+                            Transitioning into <span className="text-purple-400 font-bold">Applied AI / GenAI / Autonomous AI Engineering</span> roles. Strong foundation in machine learning, deep learning, and system design. Focused on building intelligent systems that reason, plan, and execute autonomously.
                         </p>
                     </motion.div>
 
@@ -51,10 +47,10 @@ export default function About() {
                         <h3 className="text-2xl font-bold mb-8 text-cyan-400 retro-text">Core Focus Areas</h3>
                         <ul className="space-y-5">
                             {[
-                                "Autonomous Multi-Agent Systems",
-                                "Large Language Model Pipelines",
-                                "End-to-End AI Research Workflows",
-                                "Applied Machine Learning"
+                                "Multi-Agent System Design & Orchestration",
+                                "LLM Pipeline Engineering & Prompt Optimization",
+                                "Autonomous Reasoning & Planning Architectures",
+                                "End-to-End AI Workflow Implementation"
                             ].map((item, index) => (
                                 <motion.li 
                                     key={index} 
