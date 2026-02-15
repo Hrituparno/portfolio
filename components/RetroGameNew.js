@@ -187,6 +187,10 @@ export default function RetroGame() {
                             START QUEST
                         </motion.button>
                         
+                        <div className="mt-8 text-orange-300/70 retro-text text-sm">
+                            Or skip the game and explore pages directly from the navbar above! 🍜
+                        </div>
+                        
                         <div className="mt-12 text-orange-300/70 retro-text text-sm">
                             Complete the quest to unlock all portfolio pages!
                         </div>
@@ -258,7 +262,7 @@ export default function RetroGame() {
                         </motion.div>
                         
                         <p className="text-xl text-orange-200/80 mb-12 max-w-2xl mx-auto">
-                            You've learned about Hrituparno's AI journey with Naruto! All pages are now unlocked, dattebayo!
+                            You've learned about Hrituparno's AI journey with Naruto! Explore the pages below or use the navbar anytime, dattebayo!
                         </p>
                         
                         {/* Unlocked Pages Grid */}

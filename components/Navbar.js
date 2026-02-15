@@ -34,10 +34,11 @@ export default function Navbar() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center h-20">
                     <motion.div 
-                        className="flex-shrink-0 flex items-center"
+                        className="flex-shrink-0 flex items-center gap-2"
                         whileHover={{ scale: 1.1 }}
                     >
-                        <Link href="/" className="text-2xl font-bold tracking-tight text-cyan-400 hover:text-cyan-300 transition-colors retro-text" style={{ textShadow: '0 0 10px rgba(0, 255, 204, 0.5)' }}>
+                        <Link href="/" className="text-2xl font-bold tracking-tight text-cyan-400 hover:text-cyan-300 transition-colors retro-text flex items-center gap-2" style={{ textShadow: '0 0 10px rgba(0, 255, 204, 0.5)' }}>
+                            <span className="text-3xl">🍜</span>
                             HC.
                         </Link>
                     </motion.div>
