@@ -6,24 +6,47 @@ import { motion } from 'framer-motion';
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+    const [gameCompleted, setGameCompleted] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
             setScrolled(window.scrollY > 20);
         };
         window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
+        
+        // Check if game is completed
+        const checkGameCompletion = () => {
+            const savedProgress = localStorage.getItem('narutoQuestProgress');
+            if (savedProgress) {
+                const progress = JSON.parse(savedProgress);
+                setGameCompleted(progress.gameCompleted || false);
+            }
+        };
+        
+        checkGameCompletion();
+        // Check periodically for updates
+        const interval = setInterval(checkGameCompletion, 1000);
+        
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+            clearInterval(interval);
+        };
     }, []);
 
-    const navLinks = [
+    const baseLinks = [
         { name: '🏠 Home', href: '/' },
         { name: '🍜 Game', href: '/#retro-game' },
+    ];
+    
+    const unlockedLinks = [
         { name: '📖 About', href: '/about' },
         { name: '⚡ Skills', href: '/skills' },
         { name: '🚀 Projects', href: '/projects' },
         { name: '🎓 Experience', href: '/experience' },
         { name: '📧 Contact', href: '/contact' },
     ];
+    
+    const navLinks = gameCompleted ? [...baseLinks, ...unlockedLinks] : baseLinks;
 
     return (
         <header

@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
-import Image from 'next/image';
 
 export default function NarutoGuide({ section, message, position = 'right' }) {
     const [isVisible, setIsVisible] = useState(false);
@@ -30,7 +29,7 @@ export default function NarutoGuide({ section, message, position = 'right' }) {
                 transform: 'translate(-50%, -50%)'
             }}
         >
-            {/* Naruto Character */}
+            {/* Naruto Character - Using Emoji */}
             <motion.div
                 animate={{ 
                     y: [0, -15, 0],
@@ -43,26 +42,9 @@ export default function NarutoGuide({ section, message, position = 'right' }) {
                 }}
                 className="relative"
             >
-                {/* Naruto Image Container */}
-                <div className="relative w-32 h-32 md:w-40 md:h-40">
-                    <img
-                        src="/naruto-guide.jpg"
-                        alt="Naruto Guide"
-                        className="w-full h-full object-contain"
-                        style={{
-                            filter: 'drop-shadow(0 0 20px rgba(255, 140, 0, 0.6))',
-                        }}
-                        onError={(e) => {
-                            // Try PNG if JPG fails
-                            if (e.target.src.includes('.jpg')) {
-                                e.target.src = '/naruto-guide.png';
-                            } else {
-                                // Fallback to emoji if both fail
-                                e.target.style.display = 'none';
-                                e.target.parentElement.innerHTML = '<div class="text-8xl">🍜</div>';
-                            }
-                        }}
-                    />
+                {/* Naruto Emoji */}
+                <div className="text-7xl md:text-8xl" style={{ filter: 'drop-shadow(0 0 20px rgba(255, 140, 0, 0.6))' }}>
+                    🍜
                 </div>
 
                 {/* Chakra Glow Effect */}

@@ -168,12 +168,15 @@ export default function RetroGame() {
                         </h2>
                         
                         <p className="text-xl text-cyan-300 mb-8 max-w-2xl mx-auto">
-                            Join Naruto on an adventure to learn about Hrituparno's AI journey! Believe it! 🍜
+                            Join Naruto on an adventure to learn about Hrituparno's AI journey! Complete the quest to unlock all portfolio pages! 🍜
                         </p>
                         
                         <div className="mb-8 p-4 border-2 border-orange-400/50 bg-orange-400/10 max-w-md mx-auto">
                             <p className="text-orange-300 text-sm retro-text">
-                                💡 Each dialogue earns you 100 points! Complete all 8 to unlock pages and earn your ninja rank!
+                                🎮 Play once to unlock: About, Skills, Projects, Experience & Contact pages!
+                            </p>
+                            <p className="text-orange-300 text-xs retro-text mt-2">
+                                💡 Earn 100 points per dialogue • Get ninja rank at the end!
                             </p>
                         </div>
                         
@@ -212,12 +215,8 @@ export default function RetroGame() {
                             )}
                         </div>
                         
-                        <div className="mt-8 text-orange-300/70 retro-text text-sm">
-                            Or skip the game and explore pages directly from the navbar above! 🍜
-                        </div>
-                        
                         <div className="mt-12 text-orange-300/70 retro-text text-sm">
-                            Complete the quest to unlock all portfolio pages!
+                            🏆 Complete all 8 dialogues to unlock portfolio pages and earn your ninja rank!
                         </div>
                     </motion.div>
                 </div>
@@ -343,9 +342,15 @@ export default function RetroGame() {
                             )}
                         </motion.div>
                         
-                        <p className="text-xl text-orange-200/80 mb-12 max-w-2xl mx-auto">
-                            You've learned about Hrituparno's AI journey with Naruto! Explore the pages below or use the navbar anytime, dattebayo!
+                        <p className="text-xl text-orange-200/80 mb-8 max-w-2xl mx-auto">
+                            You've completed Naruto's Quest! All portfolio pages are now unlocked in the navbar above! 🎉
                         </p>
+                        
+                        <div className="mb-12 p-4 border-2 border-cyan-400/50 bg-cyan-400/10 max-w-md mx-auto">
+                            <p className="text-cyan-300 text-sm retro-text">
+                                ✨ Check the navbar - new pages are now accessible!
+                            </p>
+                        </div>
                         
                         {/* Unlocked Pages Grid */}
                         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-12 max-w-3xl mx-auto">
@@ -532,15 +537,38 @@ export default function RetroGame() {
                             <motion.button
                                 key={index}
                                 onClick={() => handleChoice(index)}
-                                className="w-full px-6 py-4 bg-transparent border-2 border-orange-400/50 text-orange-300 hover:bg-orange-400/20 hover:border-orange-400 transition-all font-bold retro-text text-left flex items-center gap-3"
+                                className="w-full px-6 py-4 bg-transparent border-2 border-orange-400/50 text-orange-300 hover:bg-orange-400/20 hover:border-orange-400 transition-all font-bold retro-text text-left flex items-center gap-3 relative overflow-hidden group"
                                 whileHover={{ x: 10, scale: 1.02 }}
                                 whileTap={{ scale: 0.98 }}
                                 initial={{ opacity: 0, x: -20 }}
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ delay: index * 0.1 }}
                             >
-                                <span className="text-orange-400">▶</span>
-                                {option}
+                                {/* Animated background on hover */}
+                                <motion.div
+                                    className="absolute inset-0 bg-gradient-to-r from-orange-400/0 via-orange-400/20 to-orange-400/0"
+                                    initial={{ x: '-100%' }}
+                                    whileHover={{ x: '100%' }}
+                                    transition={{ duration: 0.5 }}
+                                />
+                                
+                                <motion.span 
+                                    className="text-orange-400 text-xl"
+                                    animate={{ x: [0, 5, 0] }}
+                                    transition={{ duration: 1, repeat: Infinity }}
+                                >
+                                    ▶
+                                </motion.span>
+                                <span className="relative z-10">{option}</span>
+                                
+                                {/* Sparkle effect on hover */}
+                                <motion.span
+                                    className="absolute right-4 text-yellow-400 opacity-0 group-hover:opacity-100"
+                                    animate={{ rotate: 360 }}
+                                    transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                                >
+                                    ✨
+                                </motion.span>
                             </motion.button>
                         ))}
                     </div>
