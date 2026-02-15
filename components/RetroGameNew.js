@@ -404,26 +404,9 @@ export default function RetroGame() {
                                 transition={{ duration: 2, repeat: Infinity }}
                                 className="relative mb-4"
                             >
-                                {/* Naruto Image */}
-                                <div className="relative w-32 h-32 md:w-40 md:h-40">
-                                    <img
-                                        src="/naruto-guide.jpg"
-                                        alt="Naruto"
-                                        className="w-full h-full object-contain"
-                                        style={{
-                                            filter: 'drop-shadow(0 0 20px rgba(255, 140, 0, 0.6))',
-                                        }}
-                                        onError={(e) => {
-                                            // Try PNG if JPG fails
-                                            if (e.target.src.includes('.jpg')) {
-                                                e.target.src = '/naruto-guide.png';
-                                            } else {
-                                                // Fallback to emoji if both fail
-                                                e.target.style.display = 'none';
-                                                e.target.parentElement.innerHTML = '<div class="text-8xl">🍜</div>';
-                                            }
-                                        }}
-                                    />
+                                {/* Naruto Emoji */}
+                                <div className="text-9xl" style={{ filter: 'drop-shadow(0 0 20px rgba(255, 140, 0, 0.6))' }}>
+                                    🍜
                                 </div>
 
                                 {/* Chakra Glow Effect */}
