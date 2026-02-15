@@ -68,7 +68,8 @@ export default function RetroGame() {
     const [score, setScore] = useState(0);
     const [showScore, setShowScore] = useState(false);
     const [particles, setParticles] = useState([]);
-    const [pagesUnlocked, setPagesUnlocked] = useState(false);
+    const [gameCompleted, setGameCompleted] = useState(false);
+    const [showQuickAccess, setShowQuickAccess] = useState(false);
 
     // Load game progress from localStorage on mount
     useEffect(() => {
@@ -79,7 +80,7 @@ export default function RetroGame() {
             setCurrentDialogue(progress.currentDialogue || 0);
             setScore(progress.score || 0);
             setShowScore(progress.showScore || false);
-            setPagesUnlocked(progress.pagesUnlocked || false);
+            setGameCompleted(progress.gameCompleted || false);
         }
     }, []);
 
@@ -90,10 +91,10 @@ export default function RetroGame() {
             currentDialogue,
             score,
             showScore,
-            pagesUnlocked
+            gameCompleted
         };
         localStorage.setItem('narutoQuestProgress', JSON.stringify(progress));
-    }, [gameStarted, currentDialogue, score, showScore, pagesUnlocked]);
+    }, [gameStarted, currentDialogue, score, showScore, gameCompleted]);
 
     const dialogue = gameDialogues[currentDialogue];
 
@@ -112,9 +113,16 @@ export default function RetroGame() {
                 setCurrentDialogue(currentDialogue + 1);
             }, 300);
         } else {
-            setPagesUnlocked(true);
+            setGameCompleted(true);
             setShowScore(true);
         }
+    };
+
+    const jumpToDialogue = (index) => {
+        setCurrentDialogue(index);
+        setGameStarted(true);
+        setShowScore(false);
+        setShowQuickAccess(false);
     };
 
     const createParticles = () => {
@@ -169,23 +177,40 @@ export default function RetroGame() {
                             </p>
                         </div>
                         
-                        <motion.button
-                            onClick={() => setGameStarted(true)}
-                            className="text-xl px-12 py-6 inline-flex items-center gap-3 bg-orange-500 text-white border-2 border-orange-400 hover:bg-orange-600 transition-all font-bold retro-text uppercase tracking-wider"
-                            whileHover={{ scale: 1.1 }}
-                            whileTap={{ scale: 0.95 }}
-                            animate={{ 
-                                boxShadow: [
-                                    '0 0 20px rgba(255, 140, 0, 0.3)',
-                                    '0 0 40px rgba(255, 140, 0, 0.6)',
-                                    '0 0 20px rgba(255, 140, 0, 0.3)'
-                                ]
-                            }}
-                            transition={{ duration: 2, repeat: Infinity }}
-                        >
-                            <Zap className="w-6 h-6" />
-                            START QUEST
-                        </motion.button>
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                            <motion.button
+                                onClick={() => setGameStarted(true)}
+                                className="text-xl px-12 py-6 inline-flex items-center gap-3 bg-orange-500 text-white border-2 border-orange-400 hover:bg-orange-600 transition-all font-bold retro-text uppercase tracking-wider"
+                                whileHover={{ scale: 1.1 }}
+                                whileTap={{ scale: 0.95 }}
+                                animate={{ 
+                                    boxShadow: [
+                                        '0 0 20px rgba(255, 140, 0, 0.3)',
+                                        '0 0 40px rgba(255, 140, 0, 0.6)',
+                                        '0 0 20px rgba(255, 140, 0, 0.3)'
+                                    ]
+                                }}
+                                transition={{ duration: 2, repeat: Infinity }}
+                            >
+                                <Zap className="w-6 h-6" />
+                                START QUEST
+                            </motion.button>
+                            
+                            {gameCompleted && (
+                                <motion.button
+                                    onClick={() => setShowQuickAccess(true)}
+                                    className="text-xl px-12 py-6 inline-flex items-center gap-3 bg-cyan-500 text-white border-2 border-cyan-400 hover:bg-cyan-600 transition-all font-bold retro-text uppercase tracking-wider"
+                                    whileHover={{ scale: 1.1 }}
+                                    whileTap={{ scale: 0.95 }}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: 0.3 }}
+                                >
+                                    <Star className="w-6 h-6" />
+                                    QUICK ACCESS
+                                </motion.button>
+                            )}
+                        </div>
                         
                         <div className="mt-8 text-orange-300/70 retro-text text-sm">
                             Or skip the game and explore pages directly from the navbar above! 🍜
@@ -194,6 +219,63 @@ export default function RetroGame() {
                         <div className="mt-12 text-orange-300/70 retro-text text-sm">
                             Complete the quest to unlock all portfolio pages!
                         </div>
+                    </motion.div>
+                </div>
+            </section>
+        );
+    }
+
+    // Quick Access Menu
+    if (showQuickAccess) {
+        return (
+            <section id="retro-game" className="py-24 relative overflow-hidden min-h-screen flex items-center">
+                <div className="grid-overlay opacity-20" />
+                
+                <div className="container px-4 mx-auto max-w-4xl relative z-10">
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        className="text-center"
+                    >
+                        <h2 className="text-4xl md:text-5xl font-bold mb-8 text-orange-400 retro-text" style={{ textShadow: '0 0 20px rgba(255, 140, 0, 0.5)' }}>
+                            🍜 QUICK ACCESS MENU 🍜
+                        </h2>
+                        
+                        <p className="text-lg text-cyan-300 mb-8">
+                            Jump directly to any topic about Hrituparno!
+                        </p>
+                        
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                            {gameDialogues.map((dialogue, index) => (
+                                <motion.button
+                                    key={dialogue.id}
+                                    onClick={() => jumpToDialogue(index)}
+                                    className="p-4 bg-gray-900/50 border-2 border-orange-400/50 hover:border-orange-400 hover:bg-orange-400/20 transition-all text-left"
+                                    whileHover={{ scale: 1.05, x: 5 }}
+                                    whileTap={{ scale: 0.95 }}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: index * 0.05 }}
+                                >
+                                    <div className="flex items-center gap-3">
+                                        <span className="text-3xl">{dialogue.character}</span>
+                                        <div>
+                                            <div className="text-orange-400 font-bold retro-text text-sm">Topic {dialogue.id}</div>
+                                            <div className="text-cyan-300 text-xs line-clamp-2">{dialogue.text}</div>
+                                        </div>
+                                    </div>
+                                </motion.button>
+                            ))}
+                        </div>
+                        
+                        <motion.button
+                            onClick={() => setShowQuickAccess(false)}
+                            className="px-8 py-3 bg-cyan-500 text-white border-2 border-cyan-400 hover:bg-cyan-600 transition-all font-bold retro-text"
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                        >
+                            ← BACK TO START
+                        </motion.button>
                     </motion.div>
                 </div>
             </section>
