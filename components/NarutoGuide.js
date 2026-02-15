@@ -29,7 +29,7 @@ export default function NarutoGuide({ section, message, position = 'right' }) {
                 transform: 'translate(-50%, -50%)'
             }}
         >
-            {/* Naruto Character - Using Emoji */}
+            {/* Naruto Character - Using Image */}
             <motion.div
                 animate={{ 
                     y: [0, -15, 0],
@@ -42,9 +42,19 @@ export default function NarutoGuide({ section, message, position = 'right' }) {
                 }}
                 className="relative"
             >
-                {/* Naruto Emoji */}
-                <div className="text-7xl md:text-8xl" style={{ filter: 'drop-shadow(0 0 20px rgba(255, 140, 0, 0.6))' }}>
-                    🍜
+                {/* Naruto Image */}
+                <div className="relative w-24 h-24 md:w-32 md:h-32">
+                    <img
+                        src="/naruto-guide.jpg"
+                        alt="Naruto"
+                        className="w-full h-full object-contain rounded-full"
+                        style={{
+                            filter: 'drop-shadow(0 0 20px rgba(255, 140, 0, 0.6))',
+                        }}
+                        onError={(e) => {
+                            e.target.src = '/naruto-guide.png';
+                        }}
+                    />
                 </div>
 
                 {/* Chakra Glow Effect */}

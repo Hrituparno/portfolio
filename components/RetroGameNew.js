@@ -491,9 +491,19 @@ export default function RetroGame() {
                                 transition={{ duration: 2, repeat: Infinity }}
                                 className="relative mb-4"
                             >
-                                {/* Naruto Emoji */}
-                                <div className="text-9xl" style={{ filter: 'drop-shadow(0 0 20px rgba(255, 140, 0, 0.6))' }}>
-                                    🍜
+                                {/* Naruto Image */}
+                                <div className="relative w-32 h-32 md:w-40 md:h-40">
+                                    <img
+                                        src="/naruto-guide.jpg"
+                                        alt="Naruto"
+                                        className="w-full h-full object-contain rounded-full"
+                                        style={{
+                                            filter: 'drop-shadow(0 0 20px rgba(255, 140, 0, 0.6))',
+                                        }}
+                                        onError={(e) => {
+                                            e.target.src = '/naruto-guide.png';
+                                        }}
+                                    />
                                 </div>
 
                                 {/* Chakra Glow Effect */}
