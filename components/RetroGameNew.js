@@ -480,9 +480,9 @@ export default function RetroGame() {
                     className="card relative border-orange-400/50"
                 >
                     {/* Naruto Character and Dialogue - Side by Side */}
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 items-start">
                         {/* Naruto Character Display */}
-                        <div className="flex flex-col items-center justify-center">
+                        <div className="flex flex-col items-center">
                             <motion.div
                                 animate={{ 
                                     y: [0, -10, 0],
@@ -527,7 +527,7 @@ export default function RetroGame() {
                             <motion.div
                                 initial={{ scale: 0.9 }}
                                 animate={{ scale: 1 }}
-                                className="bg-gray-800/50 border-2 border-orange-400/50 p-6 relative h-full flex items-center"
+                                className="bg-gray-800/50 border-2 border-orange-400/50 p-6 relative"
                             >
                                 <div className="absolute top-0 left-0 w-3 h-3 bg-orange-400"></div>
                                 <div className="absolute top-0 right-0 w-3 h-3 bg-orange-400"></div>
