@@ -12,17 +12,17 @@ export default function NarutoGuide({ section, message, position = 'right' }) {
     }, [section]);
 
     const narutoPositions = {
-        right: { x: '85%', y: '50%' },
-        left: { x: '5%', y: '50%' },
+        right: { x: '95%', y: '90%' },
+        left: { x: '5%', y: '90%' },
         top: { x: '50%', y: '10%' },
-        bottom: { x: '50%', y: '85%' }
+        bottom: { x: '50%', y: '90%' }
     };
 
     return (
         <motion.div
             initial={{ opacity: 0, scale: 0 }}
             animate={{ opacity: isVisible ? 1 : 0, scale: isVisible ? 1 : 0 }}
-            className="fixed z-50 pointer-events-none"
+            className="fixed z-40 pointer-events-none hidden md:block"
             style={{
                 left: narutoPositions[position].x,
                 top: narutoPositions[position].y,
@@ -43,13 +43,13 @@ export default function NarutoGuide({ section, message, position = 'right' }) {
                 className="relative"
             >
                 {/* Naruto Image */}
-                <div className="relative w-24 h-24 md:w-32 md:h-32">
+                <div className="relative w-16 h-16 md:w-20 md:h-20">
                     <img
                         src="/naruto-guide.jpg"
                         alt="Naruto"
                         className="w-full h-full object-contain rounded-full"
                         style={{
-                            filter: 'drop-shadow(0 0 20px rgba(255, 140, 0, 0.6))',
+                            filter: 'drop-shadow(0 0 15px rgba(255, 140, 0, 0.6))',
                         }}
                         onError={(e) => {
                             e.target.src = '/naruto-guide.png';
@@ -73,9 +73,9 @@ export default function NarutoGuide({ section, message, position = 'right' }) {
                 <motion.div
                     initial={{ opacity: 0, scale: 0.8, y: 20 }}
                     animate={{ opacity: 1, scale: 1, y: 0 }}
-                    className={`absolute ${position === 'right' ? 'right-full mr-4' : 'left-full ml-4'} top-1/2 -translate-y-1/2 pointer-events-auto`}
+                    className={`absolute ${position === 'right' ? 'right-full mr-2' : 'left-full ml-2'} bottom-0 pointer-events-auto`}
                 >
-                    <div className="relative bg-gray-900/95 backdrop-blur-sm border-2 border-orange-400 p-4 max-w-xs">
+                    <div className="relative bg-gray-900/95 backdrop-blur-sm border-2 border-orange-400 p-3 max-w-xs">
                         {/* Corner decorations */}
                         <div className="absolute top-0 left-0 w-2 h-2 bg-orange-400"></div>
                         <div className="absolute top-0 right-0 w-2 h-2 bg-orange-400"></div>
@@ -83,16 +83,16 @@ export default function NarutoGuide({ section, message, position = 'right' }) {
                         <div className="absolute bottom-0 right-0 w-2 h-2 bg-orange-400"></div>
 
                         {/* Speech bubble arrow */}
-                        <div className={`absolute top-1/2 -translate-y-1/2 ${position === 'right' ? '-right-2' : '-left-2'}`}>
+                        <div className={`absolute bottom-2 ${position === 'right' ? '-right-2' : '-left-2'}`}>
                             <div className={`w-0 h-0 border-t-8 border-b-8 border-transparent ${position === 'right' ? 'border-l-8 border-l-orange-400' : 'border-r-8 border-r-orange-400'}`}></div>
                         </div>
 
-                        <p className="text-orange-100 text-sm font-bold retro-text leading-relaxed">
+                        <p className="text-orange-100 text-xs font-bold retro-text leading-relaxed">
                             {message}
                         </p>
 
                         {/* Naruto's catchphrase */}
-                        <p className="text-orange-400 text-xs mt-2 font-bold retro-text">
+                        <p className="text-orange-400 text-xs mt-1 font-bold retro-text">
                             - Believe it! 🍜
                         </p>
                     </div>
