@@ -1,6 +1,5 @@
 import Layout from '../components/Layout';
 import Experience from '../components/Experience';
-import NarutoGuide from '../components/NarutoGuide';
 import { motion } from 'framer-motion';
 import { Home } from 'lucide-react';
 import Link from 'next/link';
@@ -26,13 +25,6 @@ export default function ExperiencePage() {
                     </motion.button>
                 </Link>
             </motion.div>
-
-            {/* Naruto Guide */}
-            <NarutoGuide 
-                section="experience"
-                message="His training journey! From student to mentor at MIT Pune - that's like becoming a Sensei!"
-                position="left"
-            />
 
             <Experience />
         </Layout>

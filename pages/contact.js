@@ -1,6 +1,5 @@
 import Layout from '../components/Layout';
 import Contact from '../components/Contact';
-import NarutoGuide from '../components/NarutoGuide';
 import { motion } from 'framer-motion';
 import { Home } from 'lucide-react';
 import Link from 'next/link';
@@ -26,13 +25,6 @@ export default function ContactPage() {
                     </motion.button>
                 </Link>
             </motion.div>
-
-            {/* Naruto Guide */}
-            <NarutoGuide 
-                section="contact"
-                message="Ready to team up? Send him a message! Every great ninja needs allies, believe it!"
-                position="right"
-            />
 
             <Contact />
         </Layout>

@@ -24,8 +24,8 @@ export default function Navbar() {
         };
         
         checkGameCompletion();
-        // Check periodically for updates
-        const interval = setInterval(checkGameCompletion, 1000);
+        // Check every 2 seconds for updates
+        const interval = setInterval(checkGameCompletion, 2000);
         
         return () => {
             window.removeEventListener('scroll', handleScroll);

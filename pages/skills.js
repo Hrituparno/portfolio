@@ -1,6 +1,5 @@
 import Layout from '../components/Layout';
 import Skills from '../components/Skills';
-import NarutoGuide from '../components/NarutoGuide';
 import { motion } from 'framer-motion';
 import { Home } from 'lucide-react';
 import Link from 'next/link';
@@ -26,13 +25,6 @@ export default function SkillsPage() {
                     </motion.button>
                 </Link>
             </motion.div>
-
-            {/* Naruto Guide */}
-            <NarutoGuide 
-                section="skills"
-                message="These are Hrituparno's ninja techniques! Python, C++, AI... He's mastered them all, dattebayo!"
-                position="right"
-            />
 
             <Skills />
         </Layout>

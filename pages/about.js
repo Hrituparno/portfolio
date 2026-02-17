@@ -1,6 +1,5 @@
 import Layout from '../components/Layout';
 import About from '../components/About';
-import NarutoGuide from '../components/NarutoGuide';
 import { motion } from 'framer-motion';
 import { Home } from 'lucide-react';
 import Link from 'next/link';
@@ -26,13 +25,6 @@ export default function AboutPage() {
                     </motion.button>
                 </Link>
             </motion.div>
-
-            {/* Naruto Guide */}
-            <NarutoGuide 
-                section="about"
-                message="Hey! Let me tell you about Hrituparno's journey in AI! He's like a ninja, but for coding!"
-                position="right"
-            />
 
             <About />
         </Layout>

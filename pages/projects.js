@@ -1,6 +1,5 @@
 import Layout from '../components/Layout';
 import Projects from '../components/Projects';
-import NarutoGuide from '../components/NarutoGuide';
 import { motion } from 'framer-motion';
 import { Home } from 'lucide-react';
 import Link from 'next/link';
@@ -26,13 +25,6 @@ export default function ProjectsPage() {
                     </motion.button>
                 </Link>
             </motion.div>
-
-            {/* Naruto Guide */}
-            <NarutoGuide 
-                section="projects"
-                message="Check out these awesome projects! ScholarPulse is like my Shadow Clone Jutsu - it does research automatically!"
-                position="left"
-            />
 
             <Projects />
         </Layout>
