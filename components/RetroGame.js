@@ -1,20 +1,20 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Gamepad2, Star, Zap, Code, Brain, Rocket } from 'lucide-react';
+import { Gamepad2, Star, Zap, Code, Brain, Rocket, Trophy, Target, Flame, Heart, Shield, Sparkles } from 'lucide-react';
 
-const gameDialogues = [
+// Multiple game modes with different dialogues
+const storyMode = [
     {
         id: 1,
         character: "🤖",
         name: "AI Bot",
         text: "Greetings, traveler! I'm an AI agent created by Hrituparno. Want to know about my creator?",
-        options: ["Tell me about him!", "What does he do?", "Show me his skills!"]
+        options: ["Tell me about him!", "What does he do?", "Show me his skills!"],
+        powerUp: "speed"
     },
     {
         id: 2,
         character: "🧠",
-        name: "Neural Network",
-        text: "Hrituparno is an AI Research Engineer who builds autonomous multi-agent systems. He's like a wizard, but for AI!",
         options: ["That's cool! What else?", "Multi-agent systems?", "Continue..."]
     },
     {

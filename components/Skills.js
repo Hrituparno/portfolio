@@ -35,9 +35,33 @@ export default function Skills() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                 >
-                    <h2 className="text-4xl md:text-5xl font-bold mb-4 text-cyan-400 retro-text" style={{ textShadow: '0 0 20px rgba(0, 255, 204, 0.5)' }}>
-                        Technical Stack
-                    </h2>
+                    <div className="flex items-center justify-center gap-4 mb-4">
+                        <motion.img
+                            src="/naruto-guide.jpg"
+                            alt="Naruto"
+                            className="w-12 h-12 rounded-full object-cover"
+                            animate={{ 
+                                rotate: [0, 10, -10, 0],
+                                y: [0, -5, 0]
+                            }}
+                            transition={{ duration: 2, repeat: Infinity }}
+                            style={{ filter: 'drop-shadow(0 0 10px rgba(255, 140, 0, 0.6))' }}
+                        />
+                        <h2 className="text-4xl md:text-5xl font-bold text-cyan-400 retro-text" style={{ textShadow: '0 0 20px rgba(0, 255, 204, 0.5)' }}>
+                            Technical Stack
+                        </h2>
+                        <motion.img
+                            src="/naruto-guide.jpg"
+                            alt="Naruto"
+                            className="w-12 h-12 rounded-full object-cover"
+                            animate={{ 
+                                rotate: [0, -10, 10, 0],
+                                y: [0, -5, 0]
+                            }}
+                            transition={{ duration: 2, repeat: Infinity, delay: 1 }}
+                            style={{ filter: 'drop-shadow(0 0 10px rgba(255, 140, 0, 0.6))' }}
+                        />
+                    </div>
                     <p className="text-cyan-200/70 text-lg max-w-2xl mx-auto">
                         A comprehensive toolkit for building intelligent systems
                     </p>
