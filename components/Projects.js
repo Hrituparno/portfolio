@@ -23,13 +23,13 @@ const highlightProjects = [
         type: "Multi-Agent System"
     },
     {
-        name: "Translation Hub",
-        description: "Production-ready NLP translation interface using HuggingFace transformers. Interactive Gradio deployment showcasing model integration, inference optimization, and user-friendly AI application design.",
-        tags: ["HuggingFace", "Gradio", "NLP"],
-        githubUrl: "https://github.com/Hrituparno/translation-hub",
-        demoUrl: "https://huggingface.co/spaces/hrituparno/translation-hub",
-        hasDemo: true,
-        type: "Interactive App"
+        name: "IndiaTranslate - AI Translation Hub",
+        description: "Production-grade multilingual translation system supporting 13+ Indian languages. Implements Facebook NLLB-200 and MarianMT transformers with 8-bit quantization, beam search optimization, and memory-efficient model loading. FastAPI backend with Streamlit frontend, featuring auto language detection and smart routing.",
+        tags: ["FastAPI", "Streamlit", "Transformers", "NLLB-200", "NLP"],
+        githubUrl: "https://github.com/Hrituparno/AI-Translation-Hub",
+        demoUrl: "",
+        hasDemo: false,
+        type: "Production NLP System"
     }
 ];
 
